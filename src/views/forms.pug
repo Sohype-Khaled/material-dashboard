@@ -1,0 +1,197 @@
+extends layout/layout
+
+block content
+    div.col-8
+        //- Normal Input Types
+        div.panel
+            div.panel-header
+                span Normal Input Types
+            div.panel-body
+                from
+                    div.row
+                        div.col-4
+                            div.form-group
+                                input(
+                                    class="form-control",
+                                    type="text",
+                                    id="name",
+                                    placeholder="Name",
+                                    required)
+                                label(
+                                    class="form-group__label", for="name") Name
+                        div.col-4
+                            div.form-group
+                                input(
+                                    class="form-control",
+                                    type="email",
+                                    id="email",
+                                    placeholder="Email",
+                                    required)
+                                label(
+                                    class="form-group__label", for="email") Email
+                        div.col-4
+                            div.form-group
+                                input(
+                                    class="form-control",
+                                    type="url",
+                                    id="url",
+                                    placeholder="URL",
+                                    required)
+                                label(
+                                    class="form-group__label", for="url") URL
+                        div.col-4
+                            div.form-group
+                                input(
+                                    class="form-control",
+                                    type="tel",
+                                    id="phone",
+                                    placeholder="Phone",
+                                    required)
+                                label(
+                                    class="form-group__label", for="phone") Phone
+                        div.col-4
+                            div.form-group
+                                input(
+                                    class="form-control",
+                                    type="search",
+                                    id="search",
+                                    placeholder="URL",
+                                    required)
+                                label(
+                                    class="form-group__label", for="search") Search
+                        div.col-4
+                            div.form-group
+                                input(
+                                    class="form-control",
+                                    type="password",
+                                    id="password",
+                                    placeholder="Password",
+                                    required)
+                                label(
+                                    class="form-group__label", for="password") Password
+
+                        div.col-4
+                            div.form-group.form-group--valid
+                                input(
+                                    class="form-control",
+                                    type="Text",
+                                    id="address",
+                                    placeholder="Address",
+                                    required)
+                                label(class="form-group__label", for="address") Address
+                        div.col-4
+                            div.form-group.form-group--invalid
+                                input(
+                                    class="form-control",
+                                    type="password",
+                                    id="password-valid",
+                                    placeholder="Password",
+                                    required)
+                                label(class="form-group__label", for="password-valid") Password
+
+
+
+
+        //- Checkboxes & Radios
+        div.panel.mt-3
+            div.panel-header
+                span Radios & Checkboxes
+            div.panel-body
+                div.row
+                    div.col-6
+                        div.checker-group.checker-group--invalid
+                            label Inline Checkboxes Group
+                            div.checkers
+                                - for(let i = 0; i < 3; i++)
+                                    div.checker
+                                        input(
+                                            type="checkbox",
+                                            name="inline-checkbox"
+                                            id="inline-checkbox-" + i
+                                            class="checker-control checker-control--checkbox"
+                                        )
+                                        label(class="checker__label", for="inline-checkbox-" + i) Option 1
+
+                            span.checker-group__error-message Inline Checkbox Group Is Required
+
+                    div.col-6
+                        div.checker-group.checker-group--valid
+                            label Inline Checkboxes Group
+                            div.checkers
+                                - for(let i = 0; i < 3; i++)
+                                    div.checker
+                                        input(
+                                            type="radio",
+                                            name="inline-radio"
+                                            id="inline-radio-" + i
+                                            class="checker-control checker-control--radio"
+                                        )
+                                        label(class="checker__label", for="inline-radio-" + i) Option 1
+
+
+
+
+                div.row
+                    div.col-6
+                        div.checker-group.checker-group--valid
+                            label Vertical Checkboxes Group
+                            div.checkers.checkers--column
+                                - for(let i = 0; i < 3; i++)
+                                    div.checker
+                                        input(
+                                            type="checkbox",
+                                            name="vertical-checkbox"
+                                            id="vertical-checkbox-" + i
+                                            class="checker-control checker-control--checkbox"
+                                        )
+                                        label(class="checker__label", for="vertical-checkbox-" + i) Option 1
+                    div.col-6
+                        div.checker-group.checker-group--invalid
+                            label Vertical Radio Group
+                            div.checkers.checkers--column
+                                - for(let i = 0; i < 3; i++)
+                                    div.checker
+                                        input(
+                                            type="radio",
+                                            name="vertical-radio"
+                                            id="vertical-radio-" + i
+                                            class="checker-control checker-control--radio"
+                                        )
+                                        label(class="checker__label", for="vertical-radio-" + i) Option 1
+                            span.checker-group__error-message Column Checkbox Group Is Required
+
+        //- Selects
+        div.panel.mt-3
+            div.panel-header
+                span Selects
+            div.panel-body
+                div.row
+                    div.col-12
+                        div.form-group
+                            select(
+                            class="from-control",
+                            id="single-select",
+                            required)
+                                - for(let i = 0; i < 5; i++)
+                                    option option #{i}
+                            label(class="form-group__label", for="single-select") Single Select
+                    div.col-12
+                        div.form-group
+                            select(
+                                class="from-control",
+                                id="multiple-select",
+                                multiple
+                                required)
+                                - for(let i = 0; i < 5; i++)
+                                    option option #{i}
+                            label(class="form-group__label", for="multiple-select") Multiple Select
+
+
+        div.panel.mt-3
+            div.panel-header
+                span Spinners Inputs
+
+            div.panel-body
+
+
+    div.col-4

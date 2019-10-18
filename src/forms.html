@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+          rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body class="h-100">
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <aside class="col-2">
+            <div class="sidebar">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab blanditiis culpa, cumque deleniti ea
+                eligendi
+                eos ex exercitationem fugit ipsum, molestias neque nobis non, omnis perspiciatis recusandae sapiente
+                vero.
+                Voluptatibus.
+            </div>
+        </aside>
+        <div class="col-10">
+            <div class="main h-100">
+                <nav class="navbar">
+                    <form class="form-inline">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                </nav>
+                <main class="content h-100">
+                    <div class="row py-3">
+                        <div class="col-8">
+                            <div class="panel">
+                                <div class="panel-header">
+                                    <h6>Forms & Inputs</h6>
+                                </div>
+                                <div class="panel-body">
+                                    <form class="from">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <div class="form-group">
+                                                            <input type="number" class="form-control" id="number1"
+                                                                   step="1" required>
+                                                            <label class="form-group__label"
+                                                                   for="number1">Number</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <div class="form-group">
+                                                            <select class="form-control" id="select" required>
+                                                                <option value="">Lorem.</option>
+                                                                <option value="">Corporis.</option>
+                                                                <option value="">Sit.</option>
+                                                                <option value="">Harum.</option>
+                                                                <option value="">Beatae!</option>
+                                                            </select>
+                                                            <label class="form-group__label" for="select">Select</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="checker-group checker-group--valid">
+                                                            <label>Row Radio Group</label>
+                                                            <div class="checkers">
+                                                                <div class="checker">
+                                                                    <input type="radio" name="radio" id="radio1"
+                                                                           class="checker-control checker-control--radio">
+                                                                    <label class="checker__label" for="radio1">Option
+                                                                        1</label>
+                                                                </div>
+                                                                <div class="checker">
+                                                                    <input type="radio" name="radio" id="radio2"
+                                                                           class="checker-control checker-control--radio">
+                                                                    <label class="checker__label" for="radio2">Option
+                                                                        2</label>
+                                                                </div>
+                                                                <div class="checker">
+                                                                    <input type="radio" name="radio" id="radio3"
+                                                                           class="checker-control checker-control--radio">
+                                                                    <label class="checker__label" for="radio3">Option
+                                                                        3</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+
+                                                    <div class="col-4">
+                                                        <div class="checker-group checker-group--invalid">
+                                                            <label>Column Radio Group</label>
+                                                            <div class="checkers checkers--column">
+                                                                <div class="checker">
+                                                                    <input type="radio" name="col-radio" id="radio4"
+                                                                           class="checker-control checker-control--radio">
+                                                                    <label class="checker__label" for="radio4">Option
+                                                                        1</label>
+                                                                </div>
+                                                                <div class="checker">
+                                                                    <input type="radio" name="col-radio" id="radio5"
+                                                                           class="checker-control checker-control--radio">
+                                                                    <label class="checker__label" for="radio5">Option
+                                                                        2</label>
+                                                                </div>
+                                                                <div class="checker">
+                                                                    <input type="radio" name="col-radio" id="radio6"
+                                                                           class="checker-control checker-control--radio">
+                                                                    <label class="checker__label" for="radio6">Option
+                                                                        3</label>
+                                                                </div>
+                                                            </div>
+                                                            <span class="checker-group__error-message">
+                                                                Column Radio Group Is Required
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <div class="select-group">
+                                                            <label class="select-group__label" for="select-multiple">Select</label>
+                                                            <select class="select-control" size="4" id="select-multiple"
+                                                                    multiple
+                                                                    required>
+                                                                <option value="">Lorem.</option>
+                                                                <option value="">Corporis.</option>
+                                                                <option value="">Sit.</option>
+                                                                <option value="">Harum.</option>
+                                                                <option value="">Beatae!</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <span class="form-group__file-icon material-icons-outlined">attachment</span>
+                                                            <input type="file" class="form-control" id="file"
+                                                                   placeholder="File"
+                                                                   required>
+                                                            <label class="form-group__file-label"
+                                                                   for="file">File</label>
+                                                        </div>
+
+                                                        <div class="textarea-group textarea-group__resize">
+                                                            <label class="textarea-group--label"
+                                                                   for="content">Content</label>
+                                                            <textarea id="content" wrap="soft" rows="10"
+                                                                      class="textarea-control textarea-control__no-resize"
+                                                                      placeholder="Content"
+                                                                      required></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <button type="submit">Submit</button>
+                                            <input type="submit" value="Submit">
+                                            <input type="reset" value="reset">
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="panel">
+                                <div class="panel-body">
+
+                                    <div class="file-group">
+                                        <div class="preview">
+                                            <div class="preview__image-container">
+                                                <button class="preview_image-remove">x</button>
+                                                <div class="preview__image-overlay">
+                                                    <span class="preview_image-view material-icons-outlined">remove_red_eye</span>
+                                                </div>
+                                                <img class="preview__image" src="./assets/img/snowy-mountain.jpg" alt="">
+                                            </div>
+                                            <div class="preview__image-container"></div>
+                                            <div class="preview__image-container"></div>
+                                            <div class="preview__image-container"></div>
+                                            <div class="preview__image-container"></div>
+                                            <div class="preview__image-container"></div>
+                                        </div>
+
+                                        <div class="file-input">
+                                            <input type="file" class="file-control" id="file2" required>
+                                            <label class="file-input__label" for="file2">
+                                                File
+                                                <span class="file-input__icon material-icons-outlined">attachment</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </main>
+                <footer class="footer">
+                    Copyright © 2019 Codtail
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./assets/js/jquery-3.4.1.min.js"></script>
+<script src="./assets/js/jquery-ui.min.js"></script>
+<script src="./assets/js/main.js"></script>
+</body>
+</html>

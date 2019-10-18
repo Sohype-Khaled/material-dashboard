@@ -1,0 +1,36 @@
+// messages
+$success: green;
+$error: red;
+$warning: yellow;
+$info: blue;
+$secondary: #5a6169;
+$white: white;
+// backgrounds
+$main-color: #F2F3F5;
+$sub-bgColor: #ffffff;
+$filter-bgColor: #fbfbfb;
+// borders
+$border: 1px solid #e1e5eb;
+$border-error: 1px solid $error;
+$border-success: 1px solid $success;
+// text
+$text-primary: #3d5170; //#5A5A5A
+$text-muted: #868e96;
+$text-secondary: #5a6169;
+
+
+$primary: #3F51B5;
+
+$breakPoints: (
+		'mob-sm': 360px,
+		'mob-md': 400px,
+		'mob-lg': 480px,
+		'tab-sm': 600px,
+		'tab-md': 720px,
+		'tab-lg': 840px,
+		'deskt-sm': 1280px,
+		'deskt-md': 1366px,
+		'deskt-lg': 1440px,
+		'deskt-xlg': 1920px,
+);
+

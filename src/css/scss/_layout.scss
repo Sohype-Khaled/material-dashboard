@@ -1,0 +1,116 @@
+.side-expanded {
+	.side-menu {
+		transform: translateX(0);
+		transition-duration: 235ms;
+	}
+
+	.mask {
+		opacity: 1;
+		visibility: visible;
+		z-index: 4;
+	}
+}
+
+.header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	background-color: $primary;
+	color: white;
+	z-index: 4;
+	height: 7.2rem;
+	line-height: 7.2rem;
+
+	.header__menu-btn {
+		height: 7.2rem;
+		width: 7.2rem;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+
+		@media screen and (min-width: map-get($breakPoints, 'deskt-sm')) {
+			display: none;
+		}
+	}
+
+	.header__nav {
+		margin-right: auto;
+	}
+
+	.header__nav-item {
+		display: inline-block;
+		text-align: center;
+		line-height: 7.2rem;
+		padding: 0 1.6rem;
+		align-self: center;
+	}
+
+	.brand__title {
+		color: white;
+		@media screen and (max-width: map-get($breakPoints, 'deskt-sm')) {
+			display: none;
+		}
+	}
+}
+
+.side-menu {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	padding: 0 0 4rem;
+	width: 28rem;
+	overflow-y: auto;
+	background-color: #fff;
+	z-index: 5;
+	transition: all 0.3s ease-in-out;
+	transform: translateX(-100%);
+
+	@media screen and (min-width: map-get($breakPoints, 'deskt-sm')) {
+		z-index: 3;
+		transform: translateX(0);
+	}
+}
+
+.brand {
+	display: flex;
+	margin-right: auto;
+	padding-left: 2.4rem;
+	height: 7.2rem;
+	align-items: center;
+
+	.brand__logo {
+		width: 3.2rem;
+		height: 3.2rem;
+		display: block;
+		margin-right: 1.6rem;
+		vertical-align: middle;
+		background: url('../img/material-dashboard-logo.png') 100% 50%/auto 100% no-repeat;
+		border-radius: 50%;
+	}
+
+	.brand__title {
+		font-size: 1.6rem;
+		text-transform: uppercase;
+	}
+}
+
+
+
+.content {
+	display: block;
+}
+
+.mask {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	transform: translateZ(0);
+	transition: 0.3s all ease-in-out;
+	z-index: 0;
+	visibility: hidden;
+	background-color: rgba(0, 0, 0, 0.5);
+}

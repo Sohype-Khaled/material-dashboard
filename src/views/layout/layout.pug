@@ -1,0 +1,21 @@
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Codtail| Dashboard
+        link(href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined", rel="stylesheet")
+        link(href="./assets/css/main.css", rel="stylesheet")
+    body.class
+        include header
+
+        include sideMenu
+
+        main.content
+            block content
+
+        include footer
+        div.mask
+        script(src="./assets/js/jquery-3.4.1.min.js")
+        script(src="./assets/js/main.js")

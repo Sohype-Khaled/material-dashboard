@@ -1,0 +1,460 @@
+.form-group {
+	height: 5.2rem;
+	width: 100%;
+	position: relative;
+	margin-bottom: 0.8rem;
+	background-color: $sub-bgColor;
+
+	&.form-group--valid {
+		color: $success;
+
+		input,
+		input[type=file] ~ label,
+		input[type=file] ~ i,
+		input[type=number] ~ .step-up,
+		input[type=number] ~ .step-down,
+		select,
+		textarea {
+			border-bottom: $border-success;
+			color: inherit;
+		}
+	}
+
+	&.form-group--invalid {
+		color: $error;
+
+		input,
+		input[type=file] ~ label,
+		input[type=file] ~ i,
+		input[type=number] ~ .step-up,
+		input[type=number] ~ .step-down,
+		select,
+		textarea {
+			color: inherit;
+			bottom: 1.2rem;
+			border-bottom: $border-error;
+			margin-bottom: 0.4rem;
+		}
+
+
+		.error-message {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			font-size: 1.2rem;
+			line-height: 1.2rem;
+			padding-left: 1rem;
+		}
+
+		input[type=checkbox] ~ .error-message,
+		input[type=radio] ~ .error-message {
+			padding-left: 2.8rem;
+		}
+	}
+
+	.form-group__label {
+		transition: all 0.3s ease-in-out;
+		user-select: none;
+		position: absolute;
+		top: 0;
+		left: 1.4rem;
+		font-size: 1.2rem;
+	}
+
+	.form-group__file-icon {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		border-bottom: $border;
+		margin: 0.8rem 0 1.6rem 0;
+		padding: 0 2rem;
+		z-index: 2;
+		vertical-align: middle;
+	}
+
+	.form-group__file-label {
+		position: absolute;
+		bottom: 0;
+		top: 0;
+		left: 0;
+		border-top: 0;
+		border-left: 0;
+		border-right: 0;
+		border-bottom: $border;
+		margin: 0.8rem 0 1.6rem 0;
+		padding: 0.2rem 2rem;
+		width: calc(100% - 4.4rem);
+		cursor: pointer;
+		font-size: 1.6rem;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+
+	}
+}
+
+.form-control {
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: $border;
+	margin: 0.8rem 0 1.6rem 0;
+	padding: 0 2rem;
+	font-size: 1.6rem;
+	width: 100%;
+
+	&:focus {
+		outline: none;
+	}
+
+	&::placeholder {
+		opacity: 0;
+	}
+
+	&::-webkit-inner-spin-button,
+	&::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	& ~ .form-control__step-up,
+	& ~ .form-control__step-down {
+		position: absolute;
+		top: 0.8rem;
+		width: 2rem;
+		height: 2.7rem;
+		font-size: 1.6rem;
+		border: none;
+		cursor: pointer;
+		user-select: none;
+		color: $text-primary;
+		background-color: inherit;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	& ~ .form-control__step-up {
+		right: 0;
+	}
+
+	& ~ .form-control__step-down {
+		left: 0;
+	}
+
+	&[type=text],
+	&[type=email],
+	&[type=url],
+	&[type=tel],
+	&[type=search],
+	&[type=password] {
+		&:placeholder-shown ~ label,
+		&:not(:focus) ~ label {
+			top: 1rem;
+			left: 2.2rem;
+			font-size: 1.6rem;
+		}
+
+		&:not(:placeholder-shown) ~ label,
+		&:focus ~ label {
+			top: 0;
+			left: 1.4rem;
+			font-size: 1.2rem;
+		}
+	}
+
+	&[type=number] {
+		text-align: center;
+	}
+
+	&[type=file] {
+		opacity: 0;
+	}
+}
+
+.file-group {
+	width: 100%;
+	margin-bottom: 0.8rem;
+	//background-color: red;
+}
+
+.preview {
+	height: 30rem;
+	padding: 1rem 0;
+	border: $border;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: flex-start;
+	flex-flow: row wrap;
+	align-content: flex-start;
+	overflow-y: auto;
+
+	.preview__image-container {
+		position: relative;
+		height: 9rem;
+		flex: 0 0 30%;
+		margin-bottom: 1rem;
+		background-color: #5a6169;
+
+		&:hover {
+			img {
+				opacity: 0.3;
+			}
+			.preview__image-overlay {
+				opacity: 1;
+			}
+		}
+	}
+	.preview__image {
+		height: 100%;
+		width: 100%;
+		transition: .3s ease-in-out;
+		backface-visibility: hidden;
+		opacity: 1;
+
+	}
+	.preview__image-overlay {
+		transition: .3s ease-in-out;
+		opacity: 0;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		color: white;
+	}
+	.preview_image-remove {
+		position: absolute;
+		top: 0.4rem;
+		right: 0.4rem;
+		color: white;
+		background-color: rgba(255, 0,0,  0.5);
+		line-height: 1.6rem;
+		border: none;
+		cursor: pointer;
+		width: 1.6rem;
+		height: 1.6rem;
+		border-radius: 50%;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+
+}
+
+.file-input {
+	position: relative;
+	height: 5.2rem;
+
+	.file-input__label {
+		position: absolute;
+		bottom: 0;
+		top: 0;
+		left: 0;
+		border-top: 0;
+		border-left: 0;
+		border-right: 0;
+		border-bottom: $border;
+		margin: 0.8rem 0 1.6rem 0;
+		padding: 0.2rem 2rem;
+		width: 100%;
+		cursor: pointer;
+		font-size: 1.6rem;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+
+	.file-input__icon {
+		position: absolute;
+		right: 2rem;
+		user-select: none;
+	}
+}
+
+.file-control {
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	opacity: 0;
+}
+
+
+.select-group {
+	margin-bottom: 0.8rem;
+	background-color: $sub-bgColor;
+
+	.select-group__label {
+		font-size: 1.2rem;
+		padding-left: 1.4rem;
+	}
+}
+
+.select-control {
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: $border;
+	color: $text-primary;
+	padding: 0.8rem 2rem 0.4rem 2rem;
+	width: 100%;
+	font-size: 1.6rem;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+select.form-control {
+	color: $text-primary;
+	padding: 0.8rem 2rem 0.4rem 2rem;
+
+}
+
+.textarea-group {
+	margin-bottom: 0.8rem;
+	min-height: 1.6rem;
+
+	.textarea-group--label {
+		font-size: 1.2rem;
+		padding-left: 1.4rem;
+	}
+}
+
+.textarea-control {
+	width: 100%;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: $border;
+	margin: 0 0 1.6rem 0;
+	padding: 0 2rem;
+	font-size: 1.6rem;
+
+
+	&:focus {
+		outline: none;
+	}
+
+	&.textarea-control__no-resize {
+		resize: none;
+
+	}
+
+	&.textarea-control__v-resize {
+		resize: vertical;
+
+	}
+}
+
+.checker-group {
+	margin-bottom: 0.8rem;
+
+	&.checker-group--valid {
+		color: $success;
+	}
+
+	&.checker-group--invalid {
+		color: $error;
+
+		.checker-group__error-message {
+			display: block;
+			font-size: 1.2rem;
+			padding: 0 2rem;
+		}
+	}
+}
+
+.checkers {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	margin-top: 0.4rem;
+
+	&.checkers--column {
+		flex-flow: column wrap;
+		padding: 0 2rem;
+	}
+}
+
+.checker {
+	position: relative;
+
+	.checker__label {
+		padding-left: 2.8rem;
+		cursor: pointer;
+
+
+		&::before,
+		&::after {
+			transition: all 0.3s ease;
+			position: absolute;
+			content: "";
+			display: block;
+			top: 0;
+			left: 0;
+			margin: 0.2rem;
+			width: 1.6rem;
+			height: 1.6rem;
+		}
+
+		&::before {
+			border: 0.1rem solid $text-primary;
+		}
+	}
+}
+
+.checker-control {
+	position: absolute;
+	top: 0.4rem;
+	left: 0.4rem;
+	opacity: 0;
+
+	&:checked ~ .checker__label::before {
+		background-color: $text-primary;
+	}
+
+	&.checker-control--checkbox ~ .checker__label::before {
+		border-radius: 0.5rem;
+	}
+
+	&.checker-control--radio ~ .checker__label::before {
+		border-radius: 50%;
+	}
+
+	&.checker-control--checkbox:checked ~ .checker__label::after {
+		transform: rotate(45deg) scale(1);
+		background-color: transparent;
+		top: 0.3rem;
+		left: 0.6rem;
+		margin: 0.2rem;
+		width: 0.4rem;
+		height: 0.8rem;
+		border-top: 0;
+		border-right: 0.2rem solid $white;
+		border-bottom: 0.2rem solid $white;
+		border-left: 0.2rem;
+	}
+
+	&.checker-control--radio:checked ~ .checker__label::after {
+		background-color: $white;
+		top: 0.6rem;
+		left: 0.6rem;
+		margin: 0.2rem;
+		width: 0.4rem;
+		height: 0.4rem;
+		border: 0.2rem solid $white;
+		border-radius: 50%;
+	}
+
+}
+

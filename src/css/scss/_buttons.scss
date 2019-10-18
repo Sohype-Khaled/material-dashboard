@@ -1,0 +1,29 @@
+.btn {
+	cursor: pointer;
+	border: none;
+	border-radius: 0.4rem;
+	//background-color: ;
+	vertical-align: middle;
+
+	&.btn--x-small {
+		padding: 0 0.8rem;
+		font-size: 0.8rem;
+	}
+
+	&.btn--small {
+		padding: 0 1.2rem;
+		font-size: 1.2rem;
+	}
+
+	&.btn--large {
+		padding: 0 1.6rem;
+		font-size: 1.6rem;
+	}
+
+	&.btn--x-large {
+		padding: 0 2rem;
+		font-size: 2rem;
+	}
+
+
+}
