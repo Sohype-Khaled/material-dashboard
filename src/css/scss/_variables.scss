@@ -8,10 +8,10 @@ $text-secondary: #5a6169;
 	$darken: ();
 	@for $i from 1 through 5 {
 		$lighten: map-merge($lighten, (
-				lighten-#{$i} : lighten($color, $i * 3)
+				lighten-#{$i} : lighten($color, $i * 9)
 		));
 		$darken: map-merge($darken, (
-				darken-#{$i} : darken($color, $i * 3)
+				darken-#{$i} : darken($color, $i * 5)
 		));
 	}
 	@return map_merge($lighten, $darken);
@@ -24,7 +24,12 @@ A primary color is the color displayed most frequently across your app’s scree
 */
 $primary: #3d5170;
 $primary-variants: colorMap($primary);
-@debug $primary-variants;
+@each $color, $value in $primary-variants {
+	.p-#{$color} {
+		background-color: $value;
+		color: invert($value);
+	};
+}
 
 
 /*

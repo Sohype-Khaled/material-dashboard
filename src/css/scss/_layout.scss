@@ -11,71 +11,8 @@
 	}
 }
 
-.header {
-	position: fixed;
-	top: 0;
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	background-color: $primary;
-	color: white;
-	z-index: 4;
-	height: 7.2rem;
-	line-height: 7.2rem;
-
-	.header__menu-btn {
-		height: 7.2rem;
-		width: 7.2rem;
-		background-color: transparent;
-		border: none;
-		cursor: pointer;
-
-		@media screen and (min-width: map-get($breakPoints, 'deskt-sm')) {
-			display: none;
-		}
-	}
-
-	.header__nav {
-		margin-right: auto;
-	}
-
-	.header__nav-item {
-		display: inline-block;
-		text-align: center;
-		line-height: 7.2rem;
-		padding: 0 1.6rem;
-		align-self: center;
-	}
-
-	.brand__title {
-		color: white;
-		@media screen and (max-width: map-get($breakPoints, 'deskt-sm')) {
-			display: none;
-		}
-	}
-}
-
-.side-menu {
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	padding: 0 0 4rem;
-	width: 28rem;
-	overflow-y: auto;
-	background-color: #fff;
-	z-index: 5;
-	transition: all 0.3s ease-in-out;
-	transform: translateX(-100%);
-
-	@media screen and (min-width: map-get($breakPoints, 'deskt-sm')) {
-		z-index: 3;
-		transform: translateX(0);
-	}
-}
-
 .brand {
 	display: flex;
-	margin-right: auto;
 	padding-left: 2.4rem;
 	height: 7.2rem;
 	align-items: center;
@@ -96,11 +33,131 @@
 	}
 }
 
-.content {
-	padding: 7.2rem 4rem 4rem 32rem;
-	display: block;
-	background-color: $background;
-	color: $text-primary;
+.header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-content: flex-start;
+	background-color: $primary;
+	color: white;
+	z-index: 4;
+	height: 7.2rem;
+	line-height: 7.2rem;
+
+	@media screen and (max-width: map-get($breakPoints, 'deskt-sm')) {
+		height: 9.2rem;
+	}
+
+	.header__search {
+		display: inline-block;
+
+		.header__icon {
+			cursor: pointer;
+			padding-right: 1.6rem;
+			color: map-get($primary-variants, 'lighten-3');
+		}
+	}
+
+	.header__search-input {
+		background-color: inherit;
+		border: none;
+		height: 7.2rem;
+		font-size: 1.6rem;
+		color: $surface;
+		width: 50rem;
+		transition: 0.15s all ease-in-out;
+
+		&.header__search-input-hidden {
+			display: none;
+		}
+
+		&:focus {
+			//outline: none;
+		}
+
+		&:focus ~ i.header__icon {
+			background-color: map-get($primary-variants, 'darken-3');
+		}
+
+		&::placeholder {
+			font-size: 1.6rem;
+			color: map-get($primary-variants, 'lighten-3');
+		}
+	}
+
+	.header__menu-btn {
+		height: 7.2rem;
+		width: 7.2rem;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+
+		@media screen and (min-width: map-get($breakPoints, 'deskt-sm')) {
+			display: none;
+		}
+	}
+
+	.header__nav {
+		display: flex;
+		justify-content: space-between;
+		flex-flow: row nowrap;
+		//align-self: center;
+		@media screen and (max-width: map-get($breakPoints, 'deskt-sm' )-1px) {
+			align-self: flex-end;
+		}
+	}
+
+	.header__nav-item {
+		display: inline-block;
+		text-align: center;
+
+		.header__icon {
+			line-height: 7.2rem;
+			position: relative;
+			//top: 0.4rem;
+			font-size: 2rem;
+		}
+
+		&.dropdown {
+			height: 7.2rem;
+			top: 0;
+		}
+	}
+
+	.header__link {
+		height: 7.2rem;
+		padding: 0 1.6rem;
+		display: inline-block;
+		//transition: 0.3s all ease;
+		//color: map-get($primary-variants, 'lighten-3');
+		//
+		//&:hover {
+		//	color: white;
+		//}
+
+	}
+
+	.header__link-active {
+
+	}
+
+	.header__control {
+		//align-self: self-start;
+		display: inline-block;
+		//@media screen and (min-width: map-get($breakPoints, 'deskt-sm')) {
+		//	align-self: flex-start;
+		//}
+	}
+
+	.brand__title {
+		color: white;
+		margin-right: auto;
+		@media screen and (max-width: map-get($breakPoints, 'deskt-sm')) {
+			display: none;
+		}
+	}
 }
 
 .mask {
@@ -114,4 +171,69 @@
 	z-index: 0;
 	visibility: hidden;
 	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.side-menu {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	padding: 0 0 4rem;
+	width: 28rem;
+	overflow-y: auto;
+	background-color: $surface;
+	z-index: 5;
+	transition: all 0.3s ease-in-out;
+	transform: translateX(-100%);
+	color: $primary;
+	box-sizing: content-box;
+
+	@media screen and (min-width: map-get($breakPoints, 'deskt-sm')) {
+		padding: 7.2rem 0 4rem;
+		z-index: 3;
+		transform: translateX(0);
+	}
+
+	.side-menu__list {
+		margin: 2.4rem 0;
+	}
+
+	.side-menu__list-item {
+
+	}
+
+
+	.side-menu__list-item-link {
+		display: block;
+		padding: 1.2rem 2.4rem;
+		cursor: pointer;
+		transition: 0.3s ease-in-out;
+
+		&:link, &:visited {
+			color: $primary;
+		}
+		&:hover, &:active {
+			border-left: 0.5rem solid map-get($primary-variants, 'darken-3');
+			font-weight: bold;
+		}
+
+	}
+
+	.side-menu__icon {
+		//font-size: 1.6rem;
+		margin-right: 1.2rem;
+		position: relative;
+		top: 0.6rem;
+	}
+}
+
+
+.content {
+	padding: 7.2rem 4rem 4rem 32rem;
+	display: block;
+	background-color: $background;
+	color: map-get($primary-variants, 'darken-1');
+}
+
+.footer{
+
 }

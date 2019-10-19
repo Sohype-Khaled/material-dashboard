@@ -1,15 +1,26 @@
 aside(class="side-menu", aria-hidden="false")
-    a(href="#", class="brand")
-        i.brand__logo
-        span.brand__title MATERIAL DASHBOARD
-    ul
-        li
-            a(href="/forms.html") Forms
-        li
-            a(href="/panels.html") Panels
-        li
-            a(href="./buttons.html") Buttons
-        li
-            a(href="./dataPreview.html") Data Preview
-        li
-            a(href="./gallery.html") Gallery
+    ul.side-menu__list
+        li.side-menu__list-item
+            a(href="/", class="side-menu__list-item-link")
+                i.material-icons-outlined.side-menu__icon dashboard
+                | Dashboard
+        li.side-menu__list-item
+            a(href="/forms.html", class="side-menu__list-item-link")
+                i.material-icons-outlined.side-menu__icon input
+                | Forms
+        li.side-menu__list-item
+            a(href="/panels.html", class="side-menu__list-item-link")
+                i.material-icons-outlined.side-menu__icon ballot
+                |Panels
+        li.side-menu__list-item
+            a(href="./buttons.html", class="side-menu__list-item-link")
+                i.material-icons-outlined.side-menu__icon gavel
+                |Buttons
+        li.side-menu__list-item
+            a(href="./dataPreview.html", class="side-menu__list-item-link")
+                i.material-icons-outlined.side-menu__icon subject
+                |Data Preview
+        li.side-menu__list-item
+            a(href="./gallery.html", class="side-menu__list-item-link")
+                i.material-icons-outlined.side-menu__icon photo_library
+                |Gallery
