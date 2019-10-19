@@ -1,5 +1,5 @@
 .panel {
-	background-color: $sub-bgColor;
+	background-color: $surface;
 	border-radius: 0.8rem;
 
 	.panel-header {
@@ -9,7 +9,7 @@
 
 	.panel-filter {
 		padding: 1rem 1.6rem;
-		background-color: $filter-bgColor;
+		background-color: map-get($primary-variants, 'lighten-5');
 		border-bottom: $border;
 		.panel-filter-header {
 			display: flex;

@@ -1,25 +1,61 @@
-// messages
-$success: green;
-$error: red;
-$warning: yellow;
-$info: blue;
-$secondary: #5a6169;
-$white: white;
-// backgrounds
-$main-color: #F2F3F5;
-$sub-bgColor: #ffffff;
-$filter-bgColor: #fbfbfb;
-// borders
-$border: 1px solid #e1e5eb;
-$border-error: 1px solid $error;
-$border-success: 1px solid $success;
-// text
-$text-primary: #3d5170; //#5A5A5A
+$text-primary: #ffffff; //#5A5A5A
 $text-muted: #868e96;
 $text-secondary: #5a6169;
 
 
-$primary: #3F51B5;
+@function colorMap($color) {
+	$lighten: ();
+	$darken: ();
+	@for $i from 1 through 5 {
+		$lighten: map-merge($lighten, (
+				lighten-#{$i} : lighten($color, $i * 3)
+		));
+		$darken: map-merge($darken, (
+				darken-#{$i} : darken($color, $i * 3)
+		));
+	}
+	@return map_merge($lighten, $darken);
+}
+
+
+// color scheme
+/*
+A primary color is the color displayed most frequently across your app’s screens and components.
+*/
+$primary: #3d5170;
+$primary-variants: colorMap($primary);
+@debug $primary-variants;
+
+
+/*
+Secondary colors are best for:
+Floating action buttons
+Selection controls, like sliders and switches
+Highlighting selected text
+Progress bars
+Links and headlines
+*/
+$secondary: #d6cec2;
+/*
+the background color appears behind scrollable content.
+*/
+$background: #F2F3F5;
+/*
+Surface colors affect surfaces of components, such as cards, sheets, and menus.
+*/
+$surface: #ffffff;
+/*
+	flags
+*/
+$success: #004d24;
+$error: #B00020;
+$warning: #b03800;
+$info: blue;
+$white: #ffffff;
+
+
+// grid
+$columns: 12;
 
 $breakPoints: (
 		'mob-sm': 360px,
@@ -34,3 +70,7 @@ $breakPoints: (
 		'deskt-xlg': 1920px,
 );
 
+// borders
+$border: 1px solid #e1e5eb;
+$border-error: 1px solid $error;
+$border-success: 1px solid $success;

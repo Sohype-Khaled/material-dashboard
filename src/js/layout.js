@@ -12,3 +12,7 @@ menuToggle.addEventListener('click', function (e) {
 mask.addEventListener('click', function (e) {
     body.classList.remove('side-expanded');
 });
+
+window.addEventListener('resize', function () {
+    if (window.innerWidth >= 1280) body.classList.remove("side-expanded");
+});

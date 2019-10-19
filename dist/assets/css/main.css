@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 /*!
  * Bootstrap Grid v4.3.1 (https://getbootstrap.com/)
@@ -3130,6 +3131,26 @@ html {
   .ml-xl-auto,
   .mx-xl-auto {
     margin-left: auto !important; } }
+/*
+A primary color is the color displayed most frequently across your app’s screens and components.
+*/
+/*
+Secondary colors are best for:
+Floating action buttons
+Selection controls, like sliders and switches
+Highlighting selected text
+Progress bars
+Links and headlines
+*/
+/*
+the background color appears behind scrollable content.
+*/
+/*
+Surface colors affect surfaces of components, such as cards, sheets, and menus.
+*/
+/*
+	flags
+*/
 /* Document
    ========================================================================== */
 /**
@@ -3159,14 +3180,11 @@ html {
  * Remove the margin in all browsers.
  */
 body {
-  overflow: auto;
   width: inherit;
   margin: 0;
   padding: 0;
   font-size: 1.6rem;
   font-family: 'Lato', serif;
-  background-color: #F2F3F5;
-  color: #3d5170;
   height: 100%; }
 
 /**
@@ -3235,7 +3253,7 @@ pre {
  */
 a {
   text-decoration: none;
-  color: #3d5170;
+  color: #ffffff;
   background-color: transparent; }
 
 /**
@@ -3501,7 +3519,7 @@ ol, ul {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background-color: #3F51B5;
+  background-color: #3d5170;
   color: white;
   z-index: 4;
   height: 7.2rem;
@@ -3572,7 +3590,10 @@ ol, ul {
     text-transform: uppercase; }
 
 .content {
-  display: block; }
+  padding: 7.2rem 4rem 4rem 32rem;
+  display: block;
+  background-color: #F2F3F5;
+  color: #ffffff; }
 
 .mask {
   position: fixed;
@@ -3596,7 +3617,7 @@ ol, ul {
     border-bottom: 1px solid #e1e5eb; }
   .panel .panel-filter {
     padding: 1rem 1.6rem;
-    background-color: #fbfbfb;
+    background-color: #5875a2;
     border-bottom: 1px solid #e1e5eb; }
     .panel .panel-filter .panel-filter-header {
       display: -webkit-box;
@@ -3624,7 +3645,7 @@ ol, ul {
   margin-bottom: 0.8rem;
   background-color: #ffffff; }
   .form-group.form-group--valid {
-    color: green; }
+    color: #004d24; }
     .form-group.form-group--valid input,
     .form-group.form-group--valid input[type=file] ~ label,
     .form-group.form-group--valid input[type=file] ~ i,
@@ -3632,10 +3653,10 @@ ol, ul {
     .form-group.form-group--valid input[type=number] ~ .step-down,
     .form-group.form-group--valid select,
     .form-group.form-group--valid textarea {
-      border-bottom: 1px solid green;
+      border-bottom: 1px solid #004d24;
       color: inherit; }
   .form-group.form-group--invalid {
-    color: red; }
+    color: #B00020; }
     .form-group.form-group--invalid input,
     .form-group.form-group--invalid input[type=file] ~ label,
     .form-group.form-group--invalid input[type=file] ~ i,
@@ -3645,7 +3666,7 @@ ol, ul {
     .form-group.form-group--invalid textarea {
       color: inherit;
       bottom: 1.2rem;
-      border-bottom: 1px solid red;
+      border-bottom: 1px solid #B00020;
       margin-bottom: 0.4rem; }
     .form-group.form-group--invalid .error-message {
       position: absolute;
@@ -3737,7 +3758,7 @@ ol, ul {
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
-    color: #3d5170;
+    color: #ffffff;
     background-color: inherit; }
     .form-control ~ .form-control__step-up:focus,
     .form-control ~ .form-control__step-down:focus {
@@ -3888,7 +3909,7 @@ ol, ul {
   border-left: 0;
   border-right: 0;
   border-bottom: 1px solid #e1e5eb;
-  color: #3d5170;
+  color: #ffffff;
   padding: 0.8rem 2rem 0.4rem 2rem;
   width: 100%;
   font-size: 1.6rem; }
@@ -3896,7 +3917,7 @@ ol, ul {
     outline: none; }
 
 select.form-control {
-  color: #3d5170;
+  color: #ffffff;
   padding: 0.8rem 2rem 0.4rem 2rem; }
 
 .textarea-group {
@@ -3925,9 +3946,9 @@ select.form-control {
 .checker-group {
   margin-bottom: 0.8rem; }
   .checker-group.checker-group--valid {
-    color: green; }
+    color: #004d24; }
   .checker-group.checker-group--invalid {
-    color: red; }
+    color: #B00020; }
     .checker-group.checker-group--invalid .checker-group__error-message {
       display: block;
       font-size: 1.2rem;
@@ -3968,7 +3989,7 @@ select.form-control {
       width: 1.6rem;
       height: 1.6rem; }
     .checker .checker__label::before {
-      border: 0.1rem solid #3d5170; }
+      border: 0.1rem solid #ffffff; }
 
 .checker-control {
   position: absolute;
@@ -3976,7 +3997,7 @@ select.form-control {
   left: 0.4rem;
   opacity: 0; }
   .checker-control:checked ~ .checker__label::before {
-    background-color: #3d5170; }
+    background-color: #ffffff; }
   .checker-control.checker-control--checkbox ~ .checker__label::before {
     border-radius: 0.5rem; }
   .checker-control.checker-control--radio ~ .checker__label::before {
@@ -3991,17 +4012,17 @@ select.form-control {
     width: 0.4rem;
     height: 0.8rem;
     border-top: 0;
-    border-right: 0.2rem solid white;
-    border-bottom: 0.2rem solid white;
+    border-right: 0.2rem solid #ffffff;
+    border-bottom: 0.2rem solid #ffffff;
     border-left: 0.2rem; }
   .checker-control.checker-control--radio:checked ~ .checker__label::after {
-    background-color: white;
+    background-color: #ffffff;
     top: 0.6rem;
     left: 0.6rem;
     margin: 0.2rem;
     width: 0.4rem;
     height: 0.4rem;
-    border: 0.2rem solid white;
+    border: 0.2rem solid #ffffff;
     border-radius: 50%; }
 
 .btn {

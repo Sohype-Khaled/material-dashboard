@@ -96,10 +96,11 @@
 	}
 }
 
-
-
 .content {
+	padding: 7.2rem 4rem 4rem 32rem;
 	display: block;
+	background-color: $background;
+	color: $text-primary;
 }
 
 .mask {
