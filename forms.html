@@ -5,35 +5,61 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Codtail| Dashboard</title>
+    <link rel="icon" href="./assets/img/material-dashboard-logo.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link href="./assets/css/main.css" rel="stylesheet">
   </head>
   <body class="class">
     <header class="header">
-      <button class="header__menu-btn"><i class="material-icons-outlined">menu</i></button>
-      <!-- img(class="brand__logo", src="./assets/img/material-dashboard-logo.png", alt="brand logo")--><a class="brand" href="#"><i class="brand__logo"></i><span class="brand__title">MATERIAL DASHBOARD</span></a>
+      <button class="header__menu-btn"><i class="material-icons-outlined">menu</i></button><a class="brand" href="#"><i class="brand__logo"></i><span class="brand__title">MATERIAL DASHBOARD</span></a>
       <nav class="header__nav">
         <ul>
-          <li class="header__nav-item"><a class="header__nav-link" href="javascript:void(0);">Dashboard</a></li>
-          <li class="header__nav-item"><a class="header__nav-link" href="javascript:void(0);">Colors</a></li>
-          <li class="header__nav-item"><a class="header__nav-link" href="javascript:void(0);">Panels</a></li>
-          <li class="header__nav-item"><a class="header__nav-link" href="javascript:void(0);">Buttons</a></li>
+          <li class="header__nav-item"><a class="header__link header__link-active" href="javascript:void(0);">Dashboard</a></li>
+          <li class="header__nav-item"><a class="header__link" href="javascript:void(0);">Colors</a></li>
+          <li class="header__nav-item"><a class="header__link" href="javascript:void(0);">Panels</a></li>
+          <li class="header__nav-item"><a class="header__link" href="javascript:void(0);">Buttons</a></li>
         </ul>
       </nav>
-      <nav class="header__control">
-        <ul>
-          <li class="header__nsem"><a class="header__nav-link" href="javascript:void(0);"><span class="material-icons-outlined">notifications</span></a></li>
-          <li class="headers-item"> User</li>
-        </ul>
-      </nav>
+      <ul class="header__control">
+        <li class="header__nav-item header__search">
+          <input class="header__search-input header__search-input-hidden" type="search" placeholder="search"><i class="header__icon material-icons-outlined" id="toggle-search">search</i>
+        </li>
+        <li class="header__nav-item dropdown"><a class="header__link dropdown__toggle" href="javascript:void(0);"><span class="material-icons-outlined header__icon">notifications</span></a>
+          <ul class="dropdown__menu notifications">
+            <li class="dropdown__menu-item notifications__header">Notifications</li>
+            <li class="dropdown__menu-separator"></li>
+            <li class="dropdown__menu-item notifications__item"><a class="dropdown__menu-link notifications_link"><span class="notifications__icon material-icons-outlined">notifications</span>
+                <p class="notification__title">Lorem ipsum dolor sit amet,  adipisicing elit.</p><i class="material-icons-outlined notifications__remove" title="delete this notification">remove_circle</i></a></li>
+            <li class="dropdown__menu-item notifications__item"><a class="dropdown__menu-link notifications_link"><span class="notifications__icon material-icons-outlined">notifications</span>
+                <p class="notification__title">Lorem ipsum dolor sit amet,  adipisicing elit.</p><i class="material-icons-outlined notifications__remove" title="delete this notification">remove_circle</i></a></li>
+            <li class="dropdown__menu-item notifications__item"><a class="dropdown__menu-link notifications_link"><span class="notifications__icon material-icons-outlined">notifications</span>
+                <p class="notification__title">Lorem ipsum dolor sit amet,  adipisicing elit.</p><i class="material-icons-outlined notifications__remove" title="delete this notification">remove_circle</i></a></li>
+            <li class="dropdown__menu-item notifications__item"><a class="dropdown__menu-link notifications_link"><span class="notifications__icon material-icons-outlined">notifications</span>
+                <p class="notification__title">Lorem ipsum dolor sit amet,  adipisicing elit.</p><i class="material-icons-outlined notifications__remove" title="delete this notification">remove_circle</i></a></li>
+            <li class="dropdown__menu-item notifications__item"><a class="dropdown__menu-link notifications_link"><span class="notifications__icon material-icons-outlined">notifications</span>
+                <p class="notification__title">Lorem ipsum dolor sit amet,  adipisicing elit.</p><i class="material-icons-outlined notifications__remove" title="delete this notification">remove_circle</i></a></li>
+            <li class="dropdown__menu-separator"></li>
+            <li class="dropdown__menu-item"><a class="dropdown__menu-link notifications__load-more" href="#">See More</a></li>
+          </ul>
+        </li>
+        <li class="header__nav-item dropdown"><a class="header__link dropdown__toggle" href="javascript:void(0);">User</a>
+          <ul class="dropdown__menu">
+            <li class="dropdown__menu-item"><a class="dropdown__menu-link" href="#">Profile</a></li>
+            <li class="dropdown__menu-item"><a class="dropdown__menu-link" href="#">settings</a></li>
+            <li class="dropdown__menu-separator"></li>
+            <li class="dropdown__menu-item"><a class="dropdown__menu-link" href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
     </header>
-    <aside class="side-menu" aria-hidden="false"><a class="brand" href="#"><i class="brand__logo"></i><span class="brand__title">MATERIAL DASHBOARD</span></a>
-      <ul>
-        <li><a href="/forms.html">Forms</a></li>
-        <li><a href="/panels.html">Panels</a></li>
-        <li><a href="./buttons.html">Buttons</a></li>
-        <li><a href="./dataPreview.html">Data Preview</a></li>
-        <li><a href="./gallery.html">Gallery</a></li>
+    <aside class="side-menu" aria-hidden="false">
+      <ul class="side-menu__list">
+        <li class="side-menu__list-item"><a class="side-menu__list-item-link" href="/"><i class="material-icons-outlined side-menu__icon">dashboard</i>Dashboard</a></li>
+        <li class="side-menu__list-item"><a class="side-menu__list-item-link" href="/forms.html"><i class="material-icons-outlined side-menu__icon">input</i>Forms</a></li>
+        <li class="side-menu__list-item"><a class="side-menu__list-item-link" href="/panels.html"><i class="material-icons-outlined side-menu__icon">ballot</i>Panels</a></li>
+        <li class="side-menu__list-item"><a class="side-menu__list-item-link" href="./buttons.html"><i class="material-icons-outlined side-menu__icon">gavel</i>Buttons</a></li>
+        <li class="side-menu__list-item"><a class="side-menu__list-item-link" href="./dataPreview.html"><i class="material-icons-outlined side-menu__icon">subject</i>Data Preview</a></li>
+        <li class="side-menu__list-item"><a class="side-menu__list-item-link" href="./gallery.html"><i class="material-icons-outlined side-menu__icon">photo_library</i>Gallery</a></li>
       </ul>
     </aside>
     <main class="content">
