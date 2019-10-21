@@ -13,21 +13,23 @@
 
 .brand {
 	display: flex;
-	padding-left: 2.4rem;
-	height: 7.2rem;
 	align-items: center;
+	padding-left: 2.4rem;
+	//margin-right: auto;
+	height: 7.2rem;
 
 	.brand__logo {
 		width: 3.2rem;
 		height: 3.2rem;
 		display: block;
 		margin-right: 1.6rem;
-		vertical-align: middle;
 		background: url('../img/material-dashboard-logo.png') 100% 50%/auto 100% no-repeat;
 		border-radius: 50%;
 	}
 
 	.brand__title {
+		color: $primary;
+		display: inline;
 		font-size: 1.6rem;
 		text-transform: uppercase;
 	}
@@ -38,88 +40,74 @@
 	top: 0;
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
-	align-content: flex-start;
+	justify-content: flex-start;
+	flex-flow: row wrap;
 	background-color: $primary;
 	color: white;
 	z-index: 4;
-	height: 7.2rem;
-	line-height: 7.2rem;
 
-	@media screen and (max-width: map-get($breakPoints, 'deskt-sm')) {
-		height: 9.2rem;
+	@media screen and (min-width: map-get($breakPoints, 'deskt-sm')) {
+		//height: 7.2rem;
+		//flex-flow: row wrap;
 	}
 
-	.header__search {
-		display: inline-block;
-
-		.header__icon {
-			cursor: pointer;
-			padding-right: 1.6rem;
-			color: map-get($primary-variants, 'lighten-3');
-		}
-	}
-
-	.header__search-input {
-		background-color: inherit;
-		border: none;
-		height: 7.2rem;
-		font-size: 1.6rem;
-		color: $surface;
-		width: 50rem;
-		transition: 0.15s all ease-in-out;
-
-		&.header__search-input-hidden {
-			display: none;
-		}
-
-		&:focus {
-			//outline: none;
-		}
-
-		&:focus ~ i.header__icon {
-			background-color: map-get($primary-variants, 'darken-3');
-		}
-
-		&::placeholder {
-			font-size: 1.6rem;
-			color: map-get($primary-variants, 'lighten-3');
-		}
-	}
-
-	.header__menu-btn {
+	.header__btn {
+		line-height: 0;
 		height: 7.2rem;
 		width: 7.2rem;
 		background-color: transparent;
 		border: none;
 		cursor: pointer;
+		color: $surface;
+	}
 
+	.header__btn-menu {
 		@media screen and (min-width: map-get($breakPoints, 'deskt-sm')) {
 			display: none;
 		}
 	}
 
-	.header__nav {
-		display: flex;
-		justify-content: space-between;
-		flex-flow: row nowrap;
-		//align-self: center;
-		@media screen and (max-width: map-get($breakPoints, 'deskt-sm' )-1px) {
-			align-self: flex-end;
+	.header__icon {
+		vertical-align: center;
+		font-size: 2rem;
+	}
+
+	.brand {
+		align-items: center;
+		height: 7.2rem;
+		margin-right: auto;
+
+		@media screen and (max-width: map-get($breakPoints, 'deskt-sm')) {
+			padding-left: 0;
+			//margin-left: 0;
+		}
+
+		.brand__title {
+			color: white;
+			@media screen and (max-width: map-get($breakPoints, 'deskt-sm')) {
+				display: none;
+			}
 		}
 	}
 
-	.header__nav-item {
-		display: inline-block;
-		text-align: center;
-
-		.header__icon {
-			line-height: 7.2rem;
-			position: relative;
-			//top: 0.4rem;
-			font-size: 2rem;
+	.header__nav {
+		align-self: center;
+		margin-right: auto;
+		@media screen and (max-width: map-get($breakPoints, 'deskt-sm' )-1px) {
+			align-self: flex-end;
+			order: 3;
+			flex-basis: 100%;
 		}
+	}
 
+	.header__nav-list {
+		display: flex;
+		justify-content: space-around;
+		flex-flow: row nowrap;
+	}
+
+	.header__nav-item {
+		padding: 0 1.6rem;
 		&.dropdown {
 			height: 7.2rem;
 			top: 0;
@@ -127,16 +115,19 @@
 	}
 
 	.header__link {
-		height: 7.2rem;
-		padding: 0 1.6rem;
 		display: inline-block;
-		//transition: 0.3s all ease;
-		//color: map-get($primary-variants, 'lighten-3');
-		//
-		//&:hover {
-		//	color: white;
-		//}
+		transition: 0.3s all ease;
+		color: map-get($primary-variants, 'lighten-3');
 
+		&:hover {
+			color: $surface;
+		}
+
+		@media screen and (max-width: map-get($breakPoints, 'deskt-sm')) {
+			line-height: 4rem;
+		}
+
+		align-self: flex-end;
 	}
 
 	.header__link-active {
@@ -144,20 +135,49 @@
 	}
 
 	.header__control {
-		//align-self: self-start;
-		display: inline-block;
-		//@media screen and (min-width: map-get($breakPoints, 'deskt-sm')) {
-		//	align-self: flex-start;
-		//}
-	}
-
-	.brand__title {
-		color: white;
-		margin-right: auto;
-		@media screen and (max-width: map-get($breakPoints, 'deskt-sm')) {
-			display: none;
+		align-self: center;
+		display: flex;
+		@media screen and (max-width: map-get($breakPoints, 'deskt-sm' )-1px) {
+			order: 2;
 		}
 	}
+
+	/*.header__search {
+			display: inline-block;
+
+			.header__icon {
+				cursor: pointer;
+				padding-right: 1.6rem;
+				color: map-get($primary-variants, 'lighten-3');
+			}
+		}
+
+		.header__search-input {
+			background-color: inherit;
+			border: none;
+			height: 7.2rem;
+			font-size: 1.6rem;
+			color: $surface;
+			width: 50rem;
+			transition: 0.15s all ease-in-out;
+
+			&.header__search-input-hidden {
+				display: none;
+			}
+
+			&:focus {
+				//outline: none;
+			}
+
+			&:focus ~ i.header__icon {
+				background-color: map-get($primary-variants, 'darken-3');
+			}
+
+			&::placeholder {
+				font-size: 1.6rem;
+				color: map-get($primary-variants, 'lighten-3');
+			}
+		}*/
 }
 
 .mask {
@@ -211,6 +231,7 @@
 		&:link, &:visited {
 			color: $primary;
 		}
+
 		&:hover, &:active {
 			border-left: 0.5rem solid map-get($primary-variants, 'darken-3');
 			font-weight: bold;
@@ -234,6 +255,6 @@
 	color: map-get($primary-variants, 'darken-1');
 }
 
-.footer{
+.footer {
 
 }

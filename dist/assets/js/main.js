@@ -56,7 +56,7 @@ $('textarea.form-control').parent('form-group').each(function () {
     container.css('height', textarea.css('height'))
 });*/
 
-let menuToggle = document.getElementsByClassName('header__menu-btn')[0],
+let menuToggle = document.getElementsByClassName('header__btn-menu')[0],
     body = document.getElementsByTagName('body')[0],
     mask = document.getElementsByClassName('mask')[0],
     searchToggle = document.getElementById('toggle-search'),
