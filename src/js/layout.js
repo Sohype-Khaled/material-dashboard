@@ -19,12 +19,12 @@ window.addEventListener('resize', function () {
     if (window.innerWidth >= 1280) body.classList.remove("side-expanded");
 });
 
-searchToggle.addEventListener('click', function () {
-    if (searchInput.classList.contains('header__search-input-hidden')) {
-        searchInput.focus();
-        searchInput.classList.remove("header__search-input-hidden");
-    } else {
-        searchInput.blur();
-        searchInput.classList.add("header__search-input-hidden");
-    }
-});
+// searchToggle.addEventListener('click', function () {
+//     if (searchInput.classList.contains('header__search-input-hidden')) {
+//         searchInput.focus();
+//         searchInput.classList.remove("header__search-input-hidden");
+//     } else {
+//         searchInput.blur();
+//         searchInput.classList.add("header__search-input-hidden");
+//     }
+// });

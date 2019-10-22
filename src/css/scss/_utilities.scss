@@ -1,21 +1,22 @@
 .dropdown {
 	position: relative;
-	//display: inline-block;
 
 	.dropdown__menu {
 		line-height: 1.6rem;
 		text-align: left;
 		position: absolute;
 		right: 0.5rem;
+		height: 0;
 		background-color: $surface;
 		min-width: 16rem;
 		transition: all 0.3s ease-in-out;
-		z-index: 0;
-		display: none;
+		z-index: -1;
+		opacity: 0;
 
 		&.dropdown__menu-shown {
-			display: block;
+			opacity: 1;
 			z-index: 1;
+			height: auto;
 		}
 	}
 
@@ -51,7 +52,7 @@
 	min-width: 32rem;
 	//font-size: 1.4rem;
 	overflow-y: auto;
-	max-height: 40rem;
+	//max-height: 40rem;
 
 	.notifications__header {
 		cursor: default;

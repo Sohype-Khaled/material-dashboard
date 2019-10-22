@@ -9,7 +9,6 @@ header.header
     nav.header__nav
         ul.header__nav-list
             li.header__nav-item
-                i.material-icons-outlined.header__icon dashboard
                 a(href="javascript:void(0);", class="header__link header__link-active") Dashboard
             li.header__nav-item
                 a(href="javascript:void(0);", class="header__link") Colors
@@ -19,32 +18,33 @@ header.header
                 a(href="javascript:void(0);", class="header__link") Buttons
             li.header__nav-item
                 a(href="javascript:void(0);", class="header__link")
-                    |lol
+                    | lol
 
 
-    ul.header__control
+    ul.header__control.dropdown
         li.header__nav-item.header__search
-            //input(type="search", class="header__search-input header__search-input-hidden", placeholder="search")
-            i(class="header__icon material-icons-outlined" id="toggle-search") search
-        //
-            li.header__nav-item.dropdown
-                a(href="javascript:void(0);", class="header__link dropdown__toggle")
-                    span.material-icons-outlined.header__icon notifications
-                ul.dropdown__menu.notifications
-                    li.dropdown__menu-item.notifications__header Notifications
-                    li.dropdown__menu-separator
-                    - for(let i = 0; i < 5; i++)
+            button.header__btn
+                i.material-icons-outlined.header__icon search
+            //i(class="header__icon material-icons-outlined" id="toggle-search") search
+
+        li.header__nav-item
+            a(href="javascript:void(0);", class="header__control-link dropdown__toggle")
+                span.material-icons-outlined.header__icon notifications
+            ul.dropdown__menu.notifications
+                li.dropdown__menu-item.notifications__header Notifications
+                li.dropdown__menu-separator
+                - for(let i = 0; i < 5; i++)
                     li.dropdown__menu-item.notifications__item
                         a.dropdown__menu-link.notifications_link
                             span.notifications__icon.material-icons-outlined notifications
                             p.notification__title Lorem ipsum dolor sit amet,  adipisicing elit.
                             i(class="material-icons-outlined notifications__remove", title="delete this notification") remove_circle
-                    li.dropdown__menu-separator
-                    li.dropdown__menu-item
-                        a(href="#", class="dropdown__menu-link notifications__load-more") See More
+                li.dropdown__menu-separator
+                li.dropdown__menu-item
+                    a(href="#", class="dropdown__menu-link notifications__load-more") See More
 
-            li.header__nav-item.dropdown
-            a(href="javascript:void(0);", class="header__link dropdown__toggle") User
+        li.header__nav-item.dropdown
+            a(href="javascript:void(0);", class="header__control-link dropdown__toggle") User
             ul.dropdown__menu
                 li.dropdown__menu-item
                     a(href="#", class="dropdown__menu-link") Profile

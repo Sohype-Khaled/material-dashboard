@@ -14,45 +14,44 @@
       <button class="header__btn header__btn-menu"><i class="material-icons-outlined header__icon">menu</i></button><a class="brand" href="#"><i class="brand__logo"></i><span class="brand__title">MATERIAL DASHBOARD</span></a>
       <nav class="header__nav">
         <ul class="header__nav-list">
-          <li class="header__nav-item"><i class="material-icons-outlined header__icon">dashboard</i><a class="header__link header__link-active" href="javascript:void(0);">Dashboard</a></li>
+          <li class="header__nav-item"><a class="header__link header__link-active" href="javascript:void(0);">Dashboard</a></li>
           <li class="header__nav-item"><a class="header__link" href="javascript:void(0);">Colors</a></li>
           <li class="header__nav-item"><a class="header__link" href="javascript:void(0);">Panels</a></li>
           <li class="header__nav-item"><a class="header__link" href="javascript:void(0);">Buttons</a></li>
           <li class="header__nav-item"><a class="header__link" href="javascript:void(0);">lol</a></li>
         </ul>
       </nav>
-      <ul class="header__control">
+      <ul class="header__control dropdown">
         <li class="header__nav-item header__search">
-          <!--input(type="search", class="header__search-input header__search-input-hidden", placeholder="search")--><i class="header__icon material-icons-outlined" id="toggle-search">search</i>
+          <button class="header__btn"><i class="material-icons-outlined header__icon">search</i></button>
+          <!--i(class="header__icon material-icons-outlined" id="toggle-search") search-->
         </li>
-        <!--
-        li.header__nav-item.dropdown
-            a(href="javascript:void(0);", class="header__link dropdown__toggle")
-                span.material-icons-outlined.header__icon notifications
-            ul.dropdown__menu.notifications
-                li.dropdown__menu-item.notifications__header Notifications
-                li.dropdown__menu-separator
-                - for(let i = 0; i < 5; i++)
-                li.dropdown__menu-item.notifications__item
-                    a.dropdown__menu-link.notifications_link
-                        span.notifications__icon.material-icons-outlined notifications
-                        p.notification__title Lorem ipsum dolor sit amet,  adipisicing elit.
-                        i(class="material-icons-outlined notifications__remove", title="delete this notification") remove_circle
-                li.dropdown__menu-separator
-                li.dropdown__menu-item
-                    a(href="#", class="dropdown__menu-link notifications__load-more") See More
-        
-        li.header__nav-item.dropdown
-        a(href="javascript:void(0);", class="header__link dropdown__toggle") User
-        ul.dropdown__menu
-            li.dropdown__menu-item
-                a(href="#", class="dropdown__menu-link") Profile
-            li.dropdown__menu-item
-                a(href="#", class="dropdown__menu-link") settings
-            li.dropdown__menu-separator
-            li.dropdown__menu-item
-                a(href="#", class="dropdown__menu-link") Logout
-        -->
+        <li class="header__nav-item"><a class="header__control-link dropdown__toggle" href="javascript:void(0);"><span class="material-icons-outlined header__icon">notifications</span></a>
+          <ul class="dropdown__menu notifications">
+            <li class="dropdown__menu-item notifications__header">Notifications</li>
+            <li class="dropdown__menu-separator"></li>
+            <li class="dropdown__menu-item notifications__item"><a class="dropdown__menu-link notifications_link"><span class="notifications__icon material-icons-outlined">notifications</span>
+                <p class="notification__title">Lorem ipsum dolor sit amet,  adipisicing elit.</p><i class="material-icons-outlined notifications__remove" title="delete this notification">remove_circle</i></a></li>
+            <li class="dropdown__menu-item notifications__item"><a class="dropdown__menu-link notifications_link"><span class="notifications__icon material-icons-outlined">notifications</span>
+                <p class="notification__title">Lorem ipsum dolor sit amet,  adipisicing elit.</p><i class="material-icons-outlined notifications__remove" title="delete this notification">remove_circle</i></a></li>
+            <li class="dropdown__menu-item notifications__item"><a class="dropdown__menu-link notifications_link"><span class="notifications__icon material-icons-outlined">notifications</span>
+                <p class="notification__title">Lorem ipsum dolor sit amet,  adipisicing elit.</p><i class="material-icons-outlined notifications__remove" title="delete this notification">remove_circle</i></a></li>
+            <li class="dropdown__menu-item notifications__item"><a class="dropdown__menu-link notifications_link"><span class="notifications__icon material-icons-outlined">notifications</span>
+                <p class="notification__title">Lorem ipsum dolor sit amet,  adipisicing elit.</p><i class="material-icons-outlined notifications__remove" title="delete this notification">remove_circle</i></a></li>
+            <li class="dropdown__menu-item notifications__item"><a class="dropdown__menu-link notifications_link"><span class="notifications__icon material-icons-outlined">notifications</span>
+                <p class="notification__title">Lorem ipsum dolor sit amet,  adipisicing elit.</p><i class="material-icons-outlined notifications__remove" title="delete this notification">remove_circle</i></a></li>
+            <li class="dropdown__menu-separator"></li>
+            <li class="dropdown__menu-item"><a class="dropdown__menu-link notifications__load-more" href="#">See More</a></li>
+          </ul>
+        </li>
+        <li class="header__nav-item dropdown"><a class="header__control-link dropdown__toggle" href="javascript:void(0);">User</a>
+          <ul class="dropdown__menu">
+            <li class="dropdown__menu-item"><a class="dropdown__menu-link" href="#">Profile</a></li>
+            <li class="dropdown__menu-item"><a class="dropdown__menu-link" href="#">settings</a></li>
+            <li class="dropdown__menu-separator"></li>
+            <li class="dropdown__menu-item"><a class="dropdown__menu-link" href="#">Logout</a></li>
+          </ul>
+        </li>
       </ul>
     </header>
     <aside class="side-menu" aria-hidden="false">
@@ -67,7 +66,7 @@
     </aside>
     <main class="content">
       <div class="row">
-        <div class="col-8 offset-2">
+        <div class="col-sm-8 offset-sm-2">
           <div class="panel">
             <div class="panel-header">
               <h6>Lorem ipsum dolor.</h6>
@@ -85,9 +84,7 @@
         </div>
       </div>
     </main>
-    <footer class="footer">
-      <div style="padding-left:32rem;">Codtail Dev</div>
-    </footer>
+    <footer class="footer">Codtail Dev</footer>
     <div class="mask"></div>
     <script src="./assets/js/jquery-3.4.1.min.js"></script>
     <script src="./assets/js/main.js"></script>

@@ -3544,15 +3544,17 @@ ol, ul {
     text-align: left;
     position: absolute;
     right: 0.5rem;
+    height: 0;
     background-color: #ffffff;
     min-width: 16rem;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    z-index: 0;
-    display: none; }
+    z-index: -1;
+    opacity: 0; }
     .dropdown .dropdown__menu.dropdown__menu-shown {
-      display: block;
-      z-index: 1; }
+      opacity: 1;
+      z-index: 1;
+      height: auto; }
   .dropdown .dropdown__menu-item {
     cursor: pointer;
     color: #3d5170; }
@@ -3573,8 +3575,7 @@ ol, ul {
 
 .dropdown__menu.notifications {
   min-width: 32rem;
-  overflow-y: auto;
-  max-height: 40rem; }
+  overflow-y: auto; }
   .dropdown__menu.notifications .notifications__header {
     cursor: default;
     padding: 0.4rem 1.6rem;
@@ -3666,43 +3667,7 @@ ol, ul {
           flex-flow: row wrap;
   background-color: #3d5170;
   color: white;
-  z-index: 4;
-  /*.header__search {
-			display: inline-block;
-
-			.header__icon {
-				cursor: pointer;
-				padding-right: 1.6rem;
-				color: map-get($primary-variants, 'lighten-3');
-			}
-		}
-
-		.header__search-input {
-			background-color: inherit;
-			border: none;
-			height: 7.2rem;
-			font-size: 1.6rem;
-			color: $surface;
-			width: 50rem;
-			transition: 0.15s all ease-in-out;
-
-			&.header__search-input-hidden {
-				display: none;
-			}
-
-			&:focus {
-				//outline: none;
-			}
-
-			&:focus ~ i.header__icon {
-				background-color: map-get($primary-variants, 'darken-3');
-			}
-
-			&::placeholder {
-				font-size: 1.6rem;
-				color: map-get($primary-variants, 'lighten-3');
-			}
-		}*/ }
+  z-index: 4; }
   .header .header__btn {
     line-height: 0;
     height: 7.2rem;
@@ -3715,7 +3680,6 @@ ol, ul {
     .header .header__btn-menu {
       display: none; } }
   .header .header__icon {
-    vertical-align: center;
     font-size: 2rem; }
   .header .brand {
     -webkit-box-align: center;
@@ -3756,16 +3720,21 @@ ol, ul {
             flex-flow: row nowrap; }
   .header .header__nav-item {
     padding: 0 1.6rem; }
+    .header .header__nav-item .header__btn {
+      width: auto;
+      color: #7e95b9; }
+      .header .header__nav-item .header__btn:hover {
+        color: #ffffff; }
     .header .header__nav-item.dropdown {
-      height: 7.2rem;
-      top: 0; }
+      height: 7.2rem; }
+    @media screen and (max-width: 1279px) {
+      .header .header__nav-item .dropdown__menu {
+        top: 11.2rem; } }
   .header .header__link {
     display: inline-block;
     -webkit-transition: 0.3s all ease;
     transition: 0.3s all ease;
-    color: #7e95b9;
-    -ms-flex-item-align: end;
-        align-self: flex-end; }
+    color: #7e95b9; }
     .header .header__link:hover {
       color: #ffffff; }
     @media screen and (max-width: 1280px) {
@@ -3776,12 +3745,28 @@ ol, ul {
         align-self: center;
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex; }
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap; }
     @media screen and (max-width: 1279px) {
       .header .header__control {
         -webkit-box-ordinal-group: 3;
             -ms-flex-order: 2;
                 order: 2; } }
+  .header .header__control-link {
+    line-height: 7.2rem;
+    -webkit-transition: 0.3s all ease;
+    transition: 0.3s all ease;
+    color: #7e95b9; }
+    .header .header__control-link:hover {
+      color: #ffffff; }
+    .header .header__control-link .header__icon {
+      position: relative;
+      top: 0.4rem; }
 
 .mask {
   position: fixed;
@@ -3812,7 +3797,8 @@ ol, ul {
           transform: translateX(-100%);
   color: #3d5170;
   -webkit-box-sizing: content-box;
-          box-sizing: content-box; }
+          box-sizing: content-box;
+  border-right: 0.1rem solid #7e95b9; }
   @media screen and (min-width: 1280px) {
     .side-menu {
       padding: 7.2rem 0 4rem;
@@ -3838,10 +3824,24 @@ ol, ul {
     top: 0.6rem; }
 
 .content {
-  padding: 7.2rem 4rem 4rem 32rem;
+  padding: 16.3rem 4.6rem 4.6rem 4.6rem;
   display: block;
   background-color: #F2F3F5;
-  color: #34455f; }
+  color: #34455f;
+  min-height: calc(100% - 4.6rem); }
+  @media screen and (min-width: 1280px) {
+    .content {
+      padding: 11.7rem 4.6rem 4.6rem 32.7rem; } }
+
+.footer {
+  height: 4.6rem;
+  width: 100%;
+  padding: 1.2rem 4.6rem;
+  background-color: #4d668e;
+  color: #ffffff; }
+  @media screen and (min-width: 1280px) {
+    .footer {
+      padding-left: 32.7rem; } }
 
 .panel {
   background-color: #ffffff;

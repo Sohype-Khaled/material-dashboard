@@ -68,7 +68,6 @@
 	}
 
 	.header__icon {
-		vertical-align: center;
 		font-size: 2rem;
 	}
 
@@ -98,6 +97,7 @@
 			order: 3;
 			flex-basis: 100%;
 		}
+
 	}
 
 	.header__nav-list {
@@ -108,13 +108,31 @@
 
 	.header__nav-item {
 		padding: 0 1.6rem;
+
+		.header__btn {
+			width: auto;
+			color: map-get($primary-variants, 'lighten-3');
+
+			&:hover {
+				color: $surface;
+			}
+		}
+
 		&.dropdown {
 			height: 7.2rem;
-			top: 0;
+			//top: 0;
+
+		}
+
+		.dropdown__menu {
+			@media screen and (max-width: map-get($breakPoints, 'deskt-sm' )-1px) {
+				top: 11.2rem;
+			}
 		}
 	}
 
 	.header__link {
+		//align-self: flex-end;
 		display: inline-block;
 		transition: 0.3s all ease;
 		color: map-get($primary-variants, 'lighten-3');
@@ -126,8 +144,6 @@
 		@media screen and (max-width: map-get($breakPoints, 'deskt-sm')) {
 			line-height: 4rem;
 		}
-
-		align-self: flex-end;
 	}
 
 	.header__link-active {
@@ -137,47 +153,29 @@
 	.header__control {
 		align-self: center;
 		display: flex;
+		justify-content: space-around;
+		flex-flow: row nowrap;
 		@media screen and (max-width: map-get($breakPoints, 'deskt-sm' )-1px) {
 			order: 2;
 		}
 	}
 
-	/*.header__search {
-			display: inline-block;
+	.header__control-link {
+		line-height: 7.2rem;
 
-			.header__icon {
-				cursor: pointer;
-				padding-right: 1.6rem;
-				color: map-get($primary-variants, 'lighten-3');
-			}
+		transition: 0.3s all ease;
+		color: map-get($primary-variants, 'lighten-3');
+
+		&:hover {
+			color: $surface;
 		}
 
-		.header__search-input {
-			background-color: inherit;
-			border: none;
-			height: 7.2rem;
-			font-size: 1.6rem;
-			color: $surface;
-			width: 50rem;
-			transition: 0.15s all ease-in-out;
+		.header__icon {
+			position: relative;
+			top: 0.4rem
+		}
+	}
 
-			&.header__search-input-hidden {
-				display: none;
-			}
-
-			&:focus {
-				//outline: none;
-			}
-
-			&:focus ~ i.header__icon {
-				background-color: map-get($primary-variants, 'darken-3');
-			}
-
-			&::placeholder {
-				font-size: 1.6rem;
-				color: map-get($primary-variants, 'lighten-3');
-			}
-		}*/
 }
 
 .mask {
@@ -206,6 +204,7 @@
 	transform: translateX(-100%);
 	color: $primary;
 	box-sizing: content-box;
+	border-right: 0.1rem solid map-get($primary-variants, 'lighten-3');;
 
 	@media screen and (min-width: map-get($breakPoints, 'deskt-sm')) {
 		padding: 7.2rem 0 4rem;
@@ -249,12 +248,25 @@
 
 
 .content {
-	padding: 7.2rem 4rem 4rem 32rem;
+	padding: 16.3rem 4.6rem 4.6rem 4.6rem;
 	display: block;
 	background-color: $background;
 	color: map-get($primary-variants, 'darken-1');
+	min-height: $content-height;
+	@media screen and (min-width: map-get($breakPoints, 'deskt-sm')) {
+		padding: 11.7rem 4.6rem 4.6rem 32.7rem;
+	}
 }
 
 .footer {
-
+	//position: fixed;
+	//bottom: 0;
+	height: $footer-height;
+	width: 100%;
+	padding: 1.2rem 4.6rem;
+	background-color: map-get($primary-variants, 'lighten-1');
+	color: $surface;
+	@media screen and (min-width: map-get($breakPoints, 'deskt-sm')) {
+		padding-left: 32.7rem;
+	}
 }

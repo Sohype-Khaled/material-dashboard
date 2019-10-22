@@ -2,6 +2,8 @@ $text-primary: #ffffff; //#5A5A5A
 $text-muted: #868e96;
 $text-secondary: #5a6169;
 
+$content-height: calc(100% - 4.6rem);
+$footer-height: 4.6rem;
 
 @function colorMap($color) {
 	$lighten: ();
