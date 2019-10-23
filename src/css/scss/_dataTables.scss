@@ -1,0 +1,56 @@
+.table {
+	background-color: $background;
+	//border: 2px solid darken($background, 20%);
+	//border-radius: 0.4rem;
+	width: 100%;
+	text-align: left;
+	border-collapse: collapse;
+
+
+	th {
+		border-top: 1px solid darken($background, 20%);
+		height: 5.6rem;
+	}
+
+	td {
+		height: 5.2rem;
+	}
+
+	th, td {
+		border-bottom: 1px solid darken($background, 20%);
+		vertical-align: center;
+	}
+}
+
+.datatable {
+	display: flex;
+	flex-flow: column nowrap;
+	background-color: $surface;
+
+	.datatable__row {
+		height: 5.2rem;
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		justify-content: flex-start;
+		border-bottom: 1px solid $primary;
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+
+	.datatable__cell {
+		background-color: #ccc;
+		height: 100%;
+		padding: 0 1.6rem;
+
+		&:first-child {
+			padding-left: 0;
+		}
+
+		&:last-child {
+			padding-right: 0;
+		}
+	}
+}

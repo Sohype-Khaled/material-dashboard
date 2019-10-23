@@ -408,7 +408,7 @@ select.form-control {
 		}
 
 		&::before {
-			border: 0.1rem solid $text-primary;
+			border: 0.1rem solid $primary;
 		}
 	}
 }
@@ -420,7 +420,7 @@ select.form-control {
 	opacity: 0;
 
 	&:checked ~ .checker__label::before {
-		background-color: $text-primary;
+		background-color: $primary;
 	}
 
 	&.checker-control--checkbox ~ .checker__label::before {
@@ -446,13 +446,13 @@ select.form-control {
 	}
 
 	&.checker-control--radio:checked ~ .checker__label::after {
-		background-color: #ffffff;
+		background-color: $primary;
 		top: 0.6rem;
 		left: 0.6rem;
 		margin: 0.2rem;
 		width: 0.4rem;
 		height: 0.4rem;
-		border: 0.2rem solid #ffffff;
+		border: 0.2rem solid $primary;
 		border-radius: 50%;
 	}
 

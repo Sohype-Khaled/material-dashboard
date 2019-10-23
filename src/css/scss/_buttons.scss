@@ -1,29 +1,116 @@
-.btn {
+a.btn, .btn {
 	cursor: pointer;
 	border: none;
-	border-radius: 0.4rem;
-	//background-color: ;
-	vertical-align: middle;
+	border-radius: 0.5rem;
+	background-color: transparent;
+	padding: 0 1.2rem;
+	margin-bottom: 1.2rem;
+	font-size: 1.2rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	transition: 0.3s ease-in-out;
+	display: inline-block;
+	line-height: 3.6rem;
+	margin-right: 0.3rem;
+	height: 3.6rem;
+	text-align: center;
 
-	&.btn--x-small {
-		padding: 0 0.8rem;
-		font-size: 0.8rem;
+	&.btn--rounded {
+		border-radius: 2.8rem;
 	}
 
-	&.btn--small {
-		padding: 0 1.2rem;
-		font-size: 1.2rem;
+	$colors: ('primary': $primary, 'secondary': $secondary, 'success': $success, 'info': $info, 'warning': $warning, 'error':$error);
+
+	$types: ('':'', 'text-': text, 'outlined-': outlined);
+
+	$sizes: ('sm': 0.8rem, 'lg':1.6rem);
+
+	@each $size, $value in $sizes {
+		&.btn--#{$size} {
+			font-size: $value;
+			height: $value*3;
+			line-height: $value *3;
+			padding: 0 $value;
+		}
 	}
 
-	&.btn--large {
-		padding: 0 1.6rem;
+
+	@each $color, $value in $colors {
+		@each $type, $typeValue in $types {
+			&.btn--#{$type}#{$color} {
+				@if $typeValue == text or $typeValue == outlined {
+					color: $value;
+					@if $typeValue == outlined {
+						border: 0.1rem solid $value;
+					}
+					&:hover {
+						color: $surface;
+					}
+				} @else {
+					background-color: $value;
+					color: $surface;
+				}
+
+				&:hover {
+					background-color: darken($value, 10%);
+				}
+
+				&:focus {
+					outline: none;
+					box-shadow: -0.1rem 0 0.8rem 0.4rem rgba($value, 0.2);
+				}
+			}
+		}
+	}
+
+	&:disabled, &:disabled:hover {
+		cursor: default;
+		color: darken($text-muted, 20%);
+		background-color: lighten($text-muted, 10%);
+		border: none;
+	}
+
+	.btn__icon {
+		display: inline-block;
+		position: relative;
+		top: 0.4rem;
+		width: 1.6rem;
+		height: 1.6rem;
 		font-size: 1.6rem;
 	}
+}
 
-	&.btn--x-large {
-		padding: 0 2rem;
-		font-size: 2rem;
+.btn-group {
+	display: flex;
+	flex-flow: row nowrap;
+	border: 1px solid $primary;
+	border-radius: 0.5rem;
+
+	&:after {
+		content: "";
+		clear: both;
+		display: table;
 	}
 
+	.btn {
+		margin: 0;
+		border-radius: 0;
+		border-top: none;
+		border-bottom: none;
+		border-right: none;
+
+		&:first-child {
+			border-left: none;
+		}
+
+		&:not(:last-child) {
+			border-right: none;
+		}
+
+		&:focus {
+			outline: initial;
+			box-shadow: none;
+		}
+	}
 
 }

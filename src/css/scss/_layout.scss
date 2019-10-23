@@ -118,13 +118,8 @@
 			}
 		}
 
-		&.dropdown {
-			height: 7.2rem;
-			//top: 0;
-
-		}
-
 		.dropdown__menu {
+			top: 7.2rem;
 			@media screen and (max-width: map-get($breakPoints, 'deskt-sm' )-1px) {
 				top: 11.2rem;
 			}
@@ -132,7 +127,8 @@
 	}
 
 	.header__link {
-		//align-self: flex-end;
+		line-height: 7.2rem;
+		height: 7.2rem;
 		display: inline-block;
 		transition: 0.3s all ease;
 		color: map-get($primary-variants, 'lighten-3');
@@ -143,6 +139,7 @@
 
 		@media screen and (max-width: map-get($breakPoints, 'deskt-sm')) {
 			line-height: 4rem;
+			height: 4rem;
 		}
 	}
 
@@ -161,8 +158,9 @@
 	}
 
 	.header__control-link {
+		display: inline-block;
 		line-height: 7.2rem;
-
+		//height: 7.2rem;
 		transition: 0.3s all ease;
 		color: map-get($primary-variants, 'lighten-3');
 

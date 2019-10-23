@@ -5,7 +5,8 @@
 		line-height: 1.6rem;
 		text-align: left;
 		position: absolute;
-		right: 0.5rem;
+		top: 3.7rem;
+		right: 0;
 		height: 0;
 		background-color: $surface;
 		min-width: 16rem;
@@ -45,6 +46,10 @@
 			display: block;
 			border-bottom: 0.1rem solid map-get($primary-variants, 'lighten-5');
 		}
+	}
+
+	&.btn {
+		padding: 0 0.15rem;
 	}
 }
 

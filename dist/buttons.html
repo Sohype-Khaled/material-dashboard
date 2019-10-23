@@ -21,12 +21,11 @@
           <li class="header__nav-item"><a class="header__link" href="javascript:void(0);">lol</a></li>
         </ul>
       </nav>
-      <ul class="header__control dropdown">
+      <ul class="header__control">
         <li class="header__nav-item header__search">
           <button class="header__btn"><i class="material-icons-outlined header__icon">search</i></button>
-          <!--i(class="header__icon material-icons-outlined" id="toggle-search") search-->
         </li>
-        <li class="header__nav-item"><a class="header__control-link dropdown__toggle" href="javascript:void(0);"><span class="material-icons-outlined header__icon">notifications</span></a>
+        <li class="header__nav-item dropdown"><a class="header__control-link dropdown__toggle" href="javascript:void(0);"><span class="material-icons-outlined header__icon">notifications</span></a>
           <ul class="dropdown__menu notifications">
             <li class="dropdown__menu-item notifications__header">Notifications</li>
             <li class="dropdown__menu-separator"></li>
@@ -60,20 +59,92 @@
         <li class="side-menu__list-item"><a class="side-menu__list-item-link" href="/forms.html"><i class="material-icons-outlined side-menu__icon">input</i>Forms</a></li>
         <li class="side-menu__list-item"><a class="side-menu__list-item-link" href="/panels.html"><i class="material-icons-outlined side-menu__icon">ballot</i>Panels</a></li>
         <li class="side-menu__list-item"><a class="side-menu__list-item-link" href="./buttons.html"><i class="material-icons-outlined side-menu__icon">gavel</i>Buttons</a></li>
-        <li class="side-menu__list-item"><a class="side-menu__list-item-link" href="./dataPreview.html"><i class="material-icons-outlined side-menu__icon">subject</i>Data Preview</a></li>
+        <li class="side-menu__list-item"><a class="side-menu__list-item-link" href="./data-tables.html"><i class="material-icons-outlined side-menu__icon">subject</i>Data tables</a></li>
         <li class="side-menu__list-item"><a class="side-menu__list-item-link" href="./gallery.html"><i class="material-icons-outlined side-menu__icon">photo_library</i>Gallery</a></li>
       </ul>
     </aside>
     <main class="content">
       <div class="row">
-        <div class="col-6">
-          <div class="panel">
-            <div class="panel-header"><span>Buttons</span></div>
+        <div class="col-8">
+          <div class="panel mb-3">
+            <div class="panel-header"><span>Buttons Types</span></div>
             <div class="panel-body">
-              <button class="btn btn--x-small">X-SMALL</button>
-              <button class="btn btn--small">SMALL</button>
-              <button class="btn btn--large">LARGE</button>
-              <button class="btn btn--x-large">X-LARGE</button>
+              <button class="btn btn--primary"><i class="material-icons-outlined btn__icon">assessment</i>Primary</button>
+              <button class="btn btn--secondary">Secondary</button>
+              <button class="btn btn--success">Success</button>
+              <button class="btn btn--info">Info</button>
+              <button class="btn btn--warning">Warning</button>
+              <button class="btn btn--error">Error</button>
+              <button class="btn btn--error" disabled>Disabled</button>
+            </div>
+          </div>
+          <div class="panel mb-3">
+            <div class="panel-header"><span>Text Buttons</span></div>
+            <div class="panel-body">
+              <button class="btn btn--text-primary">Primary</button>
+              <button class="btn btn--text-secondary">Secondary</button>
+              <button class="btn btn--text-success">Success</button>
+              <button class="btn btn--text-info">Info</button>
+              <button class="btn btn--text-warning">Warning</button>
+              <button class="btn btn--text-error">Error</button>
+              <button class="btn btn--text-error" disabled>Disabled</button>
+            </div>
+          </div>
+          <div class="panel mb-3">
+            <div class="panel-header"><span>Outlined Buttons</span></div>
+            <div class="panel-body">
+              <button class="btn btn--outlined-primary">Primary</button>
+              <button class="btn btn--outlined-secondary">Secondary</button>
+              <button class="btn btn--outlined-success">Success</button>
+              <button class="btn btn--outlined-info">Info</button>
+              <button class="btn btn--outlined-warning">Warning</button>
+              <button class="btn btn--outlined-error">Error</button>
+              <button class="btn btn--outlined-error" disabled>Disabled</button>
+            </div>
+          </div>
+          <div class="panel mb-3">
+            <div class="panel-header"><span>Sizing</span></div>
+            <div class="panel-body">
+              <button class="btn btn--outlined-success btn--sm"><i class="material-icons-outlined btn__icon">assessment</i>Primary</button>
+              <button class="btn btn--outlined-info">Normal</button>
+              <button class="btn btn--outlined-warning btn--lg">Large</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="panel mb-3">
+            <div class="panel-header"><span>Button Styled Link</span></div>
+            <div class="panel-body"><a class="btn btn--primary">Primary</a><a class="btn btn--outlined-secondary">Secondary</a><a class="btn btn--text-success">Success</a></div>
+          </div>
+          <div class="panel mb-3">
+            <div class="panel-header"><span>Rounded</span></div>
+            <div class="panel-body"><a class="btn btn--outlined-secondary btn--rounded">Link Secondary</a>
+              <button class="btn btn--primary btn--rounded">Button Primary</button>
+            </div>
+          </div>
+          <div class="panel mb-3">
+            <div class="panel-header"><span>Icons</span></div>
+            <div class="panel-body"><a class="btn btn--outlined-secondary btn--rounded"><i class="material-icons-outlined btn__icon">cached</i></a>
+              <button class="btn btn--primary btn--rounded"><i class="material-icons-outlined btn__icon">dashboard</i></button>
+            </div>
+          </div>
+          <div class="panel mb-3">
+            <div class="panel-header"><span>Button Groups</span></div>
+            <div class="panel-body">
+              <div class="btn-group">
+                <button class="btn btn--outlined-primary">Primary</button>
+                <button class="btn btn--outlined-secondary">Secondary</button>
+                <button class="btn btn--outlined-success">Success</button>
+                <!-- todo fix dropdown-->
+                <button class="btn btn--outlined-success dropdown"><i class="material-icons-outlined btn__icon dropdown__toggle">arrow_drop_down</i>
+                  <ul class="dropdown__menu">
+                    <li class="dropdown__menu-item"><a class="dropdown__menu-link" href="#">Profile</a></li>
+                    <li class="dropdown__menu-item"><a class="dropdown__menu-link" href="#">settings</a></li>
+                    <li class="dropdown__menu-separator"></li>
+                    <li class="dropdown__menu-item"><a class="dropdown__menu-link" href="#">Logout</a></li>
+                  </ul>
+                </button>
+              </div>
             </div>
           </div>
         </div>

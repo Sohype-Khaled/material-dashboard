@@ -2,12 +2,93 @@ extends layout/layout
 
 block content
     div.row
-        div.col-6
-            div.panel
+        div.col-8
+            div.panel.mb-3
                 div.panel-header
-                    span Buttons
+                    span Buttons Types
                 div.panel-body
-                    button.btn.btn--x-small X-SMALL
-                    button.btn.btn--small SMALL
-                    button.btn.btn--large LARGE
-                    button.btn.btn--x-large X-LARGE
+                    button.btn.btn--primary
+                        i.material-icons-outlined.btn__icon assessment
+                        |Primary
+                    button.btn.btn--secondary Secondary
+                    button.btn.btn--success Success
+                    button.btn.btn--info Info
+                    button.btn.btn--warning Warning
+                    button.btn.btn--error Error
+                    button(class="btn btn--error", disabled) Disabled
+
+            div.panel.mb-3
+                div.panel-header
+                    span Text Buttons
+                div.panel-body
+                    button.btn.btn--text-primary Primary
+                    button.btn.btn--text-secondary Secondary
+                    button.btn.btn--text-success Success
+                    button.btn.btn--text-info Info
+                    button.btn.btn--text-warning Warning
+                    button.btn.btn--text-error Error
+                    button(class="btn btn--text-error", disabled) Disabled
+
+            div.panel.mb-3
+                div.panel-header
+                    span Outlined Buttons
+                div.panel-body
+                    button.btn.btn--outlined-primary Primary
+                    button.btn.btn--outlined-secondary Secondary
+                    button.btn.btn--outlined-success Success
+                    button.btn.btn--outlined-info Info
+                    button.btn.btn--outlined-warning Warning
+                    button.btn.btn--outlined-error Error
+                    button(class="btn btn--outlined-error", disabled) Disabled
+            div.panel.mb-3
+                div.panel-header
+                    span Sizing
+                div.panel-body
+                    button.btn.btn--outlined-success.btn--sm
+                        i.material-icons-outlined.btn__icon assessment
+                        | Primary
+                    button.btn.btn--outlined-info Normal
+                    button.btn.btn--outlined-warning.btn--lg Large
+
+
+        div.col-4
+            div.panel.mb-3
+                div.panel-header
+                    span Button Styled Link
+                div.panel-body
+                    a.btn.btn--primary Primary
+                    a.btn.btn--outlined-secondary Secondary
+                    a.btn.btn--text-success Success
+            div.panel.mb-3
+                div.panel-header
+                    span Rounded
+                div.panel-body
+                    a.btn.btn--outlined-secondary.btn--rounded Link Secondary
+                    button.btn.btn--primary.btn--rounded Button Primary
+            div.panel.mb-3
+                div.panel-header
+                    span Icons
+                div.panel-body
+                    a.btn.btn--outlined-secondary.btn--rounded
+                        i.material-icons-outlined.btn__icon cached
+                    button.btn.btn--primary.btn--rounded
+                        i.material-icons-outlined.btn__icon dashboard
+            div.panel.mb-3
+                div.panel-header
+                    span Button Groups
+                div.panel-body
+                    div.btn-group
+                        button.btn.btn--outlined-primary Primary
+                        button.btn.btn--outlined-secondary Secondary
+                        button.btn.btn--outlined-success Success
+                        // todo fix dropdown
+                        button.btn.btn--outlined-success.dropdown
+                            i.material-icons-outlined.btn__icon.dropdown__toggle arrow_drop_down
+                            ul.dropdown__menu
+                                li.dropdown__menu-item
+                                    a(href="#", class="dropdown__menu-link") Profile
+                                li.dropdown__menu-item
+                                    a(href="#", class="dropdown__menu-link") settings
+                                li.dropdown__menu-separator
+                                li.dropdown__menu-item
+                                    a(href="#", class="dropdown__menu-link") Logout
