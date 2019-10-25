@@ -206,11 +206,13 @@
 			img {
 				opacity: 0.3;
 			}
+
 			.preview__image-overlay {
 				opacity: 1;
 			}
 		}
 	}
+
 	.preview__image {
 		height: 100%;
 		width: 100%;
@@ -219,6 +221,7 @@
 		opacity: 1;
 
 	}
+
 	.preview__image-overlay {
 		transition: .3s ease-in-out;
 		opacity: 0;
@@ -228,12 +231,13 @@
 		transform: translate(-50%, -50%);
 		color: white;
 	}
+
 	.preview_image-remove {
 		position: absolute;
 		top: 0.4rem;
 		right: 0.4rem;
 		color: white;
-		background-color: rgba(255, 0,0,  0.5);
+		background-color: rgba(255, 0, 0, 0.5);
 		line-height: 1.6rem;
 		border: none;
 		cursor: pointer;
@@ -393,14 +397,13 @@ select.form-control {
 		padding-left: 2.8rem;
 		cursor: pointer;
 
-
 		&::before,
 		&::after {
 			transition: all 0.3s ease;
 			position: absolute;
 			content: "";
 			display: block;
-			top: 0;
+			top: 0.3rem;
 			left: 0;
 			margin: 0.2rem;
 			width: 1.6rem;
@@ -434,7 +437,7 @@ select.form-control {
 	&.checker-control--checkbox:checked ~ .checker__label::after {
 		transform: rotate(45deg) scale(1);
 		background-color: transparent;
-		top: 0.3rem;
+		top: 0.6rem;
 		left: 0.6rem;
 		margin: 0.2rem;
 		width: 0.4rem;
@@ -447,7 +450,7 @@ select.form-control {
 
 	&.checker-control--radio:checked ~ .checker__label::after {
 		background-color: $primary;
-		top: 0.6rem;
+		top: 0.9rem;
 		left: 0.6rem;
 		margin: 0.2rem;
 		width: 0.4rem;
@@ -455,6 +458,7 @@ select.form-control {
 		border: 0.2rem solid $primary;
 		border-radius: 50%;
 	}
+
 
 }
 

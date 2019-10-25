@@ -1,6 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
-/*!
+@font-face {}/*!
  * Bootstrap Grid v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
  * Copyright 2011-2019 Twitter, Inc.
@@ -3191,12 +3190,6 @@ Surface colors affect surfaces of components, such as cards, sheets, and menus.
 /*
 	flags
 */
-/* Document
-   ========================================================================== */
-/**
- * 1. Correct the line height in all browsers.
- * 2. Prevent adjustments of font size after orientation changes in iOS.
- */
 html {
   width: 100%;
   height: 100%;
@@ -3310,8 +3303,10 @@ abbr[title] {
  * Add the correct font weight in Chrome, Edge, and Safari.
  */
 b,
+em,
 strong {
-  font-weight: bolder; }
+  font-weight: bolder;
+  font-synthesis: none; }
 
 /**
  * 1. Correct the inheritance and scaling of font size in all browsers.
@@ -3537,6 +3532,10 @@ template {
 ol, ul {
   list-style: none; }
 
+[class^="material-icons"] {
+  display: inline-block;
+  position: relative; }
+
 .dropdown {
   position: relative; }
   .dropdown .dropdown__menu {
@@ -3654,6 +3653,20 @@ ol, ul {
     font-size: 1.6rem;
     text-transform: uppercase; }
 
+.mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  -webkit-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+  z-index: 0;
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.5); }
+
 .header {
   position: fixed;
   top: 0;
@@ -3682,8 +3695,6 @@ ol, ul {
   @media screen and (min-width: 1280px) {
     .header .header__btn-menu {
       display: none; } }
-  .header .header__icon {
-    font-size: 2rem; }
   .header .brand {
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -3771,23 +3782,6 @@ ol, ul {
     color: #7e95b9; }
     .header .header__control-link:hover {
       color: #ffffff; }
-    .header .header__control-link .header__icon {
-      position: relative;
-      top: 0.4rem; }
-
-.mask {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-  -webkit-transition: 0.3s all ease-in-out;
-  transition: 0.3s all ease-in-out;
-  z-index: 0;
-  visibility: hidden;
-  background-color: rgba(0, 0, 0, 0.5); }
 
 .side-menu {
   position: fixed;
@@ -4224,7 +4218,7 @@ select.form-control {
       position: absolute;
       content: "";
       display: block;
-      top: 0;
+      top: 0.3rem;
       left: 0;
       margin: 0.2rem;
       width: 1.6rem;
@@ -4247,7 +4241,7 @@ select.form-control {
     -webkit-transform: rotate(45deg) scale(1);
             transform: rotate(45deg) scale(1);
     background-color: transparent;
-    top: 0.3rem;
+    top: 0.6rem;
     left: 0.6rem;
     margin: 0.2rem;
     width: 0.4rem;
@@ -4258,7 +4252,7 @@ select.form-control {
     border-left: 0.2rem; }
   .checker-control.checker-control--radio:checked ~ .checker__label::after {
     background-color: #3d5170;
-    top: 0.6rem;
+    top: 0.9rem;
     left: 0.6rem;
     margin: 0.2rem;
     width: 0.4rem;
@@ -4517,31 +4511,46 @@ a.btn, .btn {
       -webkit-box-shadow: none;
               box-shadow: none; }
 
-.table {
-  background-color: #F2F3F5;
+.datatable {
+  font-size: 0.875em;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: 0.0625em solid #b8bec9;
+  border-radius: 0.4em;
   width: 100%;
   text-align: left;
   border-collapse: collapse; }
-  .table th {
-    border-top: 1px solid #b8bec9;
-    height: 5.6rem; }
-  .table td {
-    height: 5.2rem; }
-  .table th, .table td {
-    border-bottom: 1px solid #b8bec9;
-    vertical-align: center; }
-
-.datatable {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-  background-color: #ffffff; }
-  .datatable .datatable__row {
-    height: 5.2rem;
+  .datatable .datatable__action {
+    display: none; }
+    .datatable .datatable__action ul {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: end;
+          -ms-flex-pack: end;
+              justify-content: flex-end;
+      -webkit-box-align: stretch;
+          -ms-flex-align: stretch;
+              align-items: stretch;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-flow: row nowrap;
+              flex-flow: row nowrap; }
+      .datatable .datatable__action ul a {
+        font-size: 1.2em;
+        padding: 0.8rem;
+        color: #3d5170;
+        line-height: 1em;
+        height: 1em;
+        width: 1em; }
+        .datatable .datatable__action ul a:hover {
+          background-color: #b9c6d9;
+          border-radius: 50%; }
+  .datatable tr {
+    position: relative;
+    border-bottom: 0.0625em solid #b8bec9;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -4549,20 +4558,57 @@ a.btn, .btn {
     -webkit-box-direction: normal;
         -ms-flex-flow: row nowrap;
             flex-flow: row nowrap;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
-    border-bottom: 1px solid #3d5170; }
-    .datatable .datatable__row:last-child {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    @media (max-width: 840px) {
+      .datatable tr {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-flow: column;
+                flex-flow: column;
+        -webkit-box-align: start;
+            -ms-flex-align: start;
+                align-items: flex-start; } }
+    .datatable tr:last-of-type {
       border-bottom: none; }
-  .datatable .datatable__cell {
-    background-color: #ccc;
-    height: 100%;
-    padding: 0 1.6rem; }
-    .datatable .datatable__cell:first-child {
-      padding-left: 0; }
-    .datatable .datatable__cell:last-child {
-      padding-right: 0; }
+    .datatable tr:hover {
+      -webkit-box-shadow: 0px 0px 22px 3px rgba(184, 190, 201, 0.45);
+              box-shadow: 0px 0px 22px 3px rgba(184, 190, 201, 0.45); }
+      .datatable tr:hover .datatable__action {
+        background-color: #ffffff;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; }
+      .datatable tr:hover td:nth-last-child(2) {
+        display: none; }
+  .datatable thead {
+    border-bottom: 0.125em solid #b8bec9; }
+    .datatable thead tr:hover {
+      -webkit-box-shadow: none;
+              box-shadow: none; }
+  .datatable th {
+    height: 3.6rem; }
+  .datatable td {
+    height: 4rem;
+    font-size: 1.4rem; }
+  .datatable th, .datatable td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0 0.5em; }
+  .datatable .datatable__cell-icon {
+    width: 1.4rem; }

@@ -1,82 +1,10 @@
 extends layout/layout
 
 block content
-    //table.table
-    //    thead
-    //        tr
-    //            th
-    //                div.checker
-    //                    input(
-    //                        type="checkbox",
-    //                        name="inline-checkbox"
-    //                        id="checkbox-head"
-    //                        class="checker-control checker-control--checkbox"
-    //                    )
-    //                    label(class="checker__label", for="checkbox-head")
-    //            th name
-    //            th Address
-    //            th phone
-    //    tbody
-    //        tr
-    //            td
-    //                div.checker
-    //                    input(
-    //                        type="checkbox",
-    //                        name="inline-checkbox"
-    //                        id="checkbox-1"
-    //                        class="checker-control checker-control--checkbox"
-    //                    )
-    //                    label(class="checker__label", for="checkbox-1")
-    //            td Ali
-    //            td Address
-    //            td phone
-    //        tr
-    //            td
-    //                div.checker
-    //                    input(
-    //                        type="checkbox",
-    //                        name="inline-checkbox"
-    //                        id="checkbox-1"
-    //                        class="checker-control checker-control--checkbox"
-    //                    )
-    //                    label(class="checker__label", for="checkbox-1")
-    //            td Ali
-    //            td Address
-    //            td phone
-    //
-    //        tr
-    //            td
-    //                div.checker
-    //                    input(
-    //                        type="checkbox",
-    //                        name="inline-checkbox"
-    //                        id="checkbox-1"
-    //                        class="checker-control checker-control--checkbox"
-    //                    )
-    //                    label(class="checker__label", for="checkbox-1")
-    //            td Ali
-    //            td Address
-    //            td phone
-    //        tr
-    //            td
-    //                div.checker
-    //                    input(
-    //                        type="checkbox",
-    //                        name="inline-checkbox"
-    //                        id="checkbox-1"
-    //                        class="checker-control checker-control--checkbox"
-    //                    )
-    //                    label(class="checker__label", for="checkbox-1")
-    //            td Ali
-    //            td Address
-    //            td phone
-    //
-
-
-    div.datatable
-        div.datatable__header
-            div.datatable__row
-                div.datatable__cell
+    table.datatable
+        thead
+            tr
+                th
                     div.checker
                         input(
                             type="checkbox",
@@ -85,89 +13,62 @@ block content
                             class="checker-control checker-control--checkbox"
                         )
                         label(class="checker__label", for="checkbox-head")
-                div.datatable__cell Name
-                div.datatable__cell Address
-                div.datatable__cell Phone
-                div.datatable__cell Actions
+                th.col-3 name
+                th.col-5 Address
+                th.col-1 Status
+                th.col-1 Date
 
-        div.datatable__body
-            div.datatable__row
-                div.datatable__cell
-                    div.checker
-                        input(
-                            type="checkbox",
-                            name="inline-checkbox"
-                            id="checkbox-head"
-                            class="checker-control checker-control--checkbox"
-                        )
-                        label(class="checker__label", for="checkbox-head")
-                div.datatable__cell Name
-                div.datatable__cell
-                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. A cupiditate ex labore, quae sint soluta.
-                div.datatable__cell Phone
-                div.datatable__cell Actions
-
-            div.datatable__row
-                div.datatable__cell
-                    div.checker
-                        input(
-                            type="checkbox",
-                            name="inline-checkbox"
-                            id="checkbox-head"
-                            class="checker-control checker-control--checkbox"
-                        )
-                        label(class="checker__label", for="checkbox-head")
-                div.datatable__cell Name
-                div.datatable__cell
-                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. A eum harum ipsum, odit placeat quo.
-                div.datatable__cell Phone
-                div.datatable__cell Actions
-
-            div.datatable__row
-                div.datatable__cell
-                    div.checker
-                        input(
-                            type="checkbox",
-                            name="inline-checkbox"
-                            id="checkbox-head"
-                            class="checker-control checker-control--checkbox"
-                        )
-                        label(class="checker__label", for="checkbox-head")
-                div.datatable__cell Name
-                div.datatable__cell
-                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dignissimos dolor et eum in, saepe.
-                div.datatable__cell Phone
-                div.datatable__cell Actions
-
-            div.datatable__row
-                div.datatable__cell
-                    div.checker
-                        input(
-                            type="checkbox",
-                            name="inline-checkbox"
-                            id="checkbox-head"
-                            class="checker-control checker-control--checkbox"
-                        )
-                        label(class="checker__label", for="checkbox-head")
-                div.datatable__cell Name
-                div.datatable__cell
-                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores harum inventore pariatur quis sit sunt?
-                div.datatable__cell Phone
-                div.datatable__cell Actions
-
-            div.datatable__row
-                div.datatable__cell
-                    div.checker
-                        input(
-                            type="checkbox",
-                            name="inline-checkbox"
-                            id="checkbox-head"
-                            class="checker-control checker-control--checkbox"
-                        )
-                        label(class="checker__label", for="checkbox-head")
-                div.datatable__cell Name
-                div.datatable__cell
-                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus eaque impedit inventore placeat quaerat tempore!
-                div.datatable__cell Phone
-                div.datatable__cell Actions
-
+        tbody
+            - for(let i = 1; i <= 10; i++)
+                tr
+                    td
+                        div.checker
+                            input(
+                                type="checkbox",
+                                name="inline-checkbox"
+                                id="checkbox-"+i
+                                class="checker-control checker-control--checkbox"
+                            )
+                            label(class="checker__label", for="checkbox-"+i)
+                    td.col-3
+                        span.td__title Name:
+                        i +'. Lorem ipsum dolor sit amet.'
+                    td.col-5 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    td.col-1 active
+                    td.col-1 Dec 25, 2016
+                    
+                    td.datatable__action
+                        ul
+                            li
+                                a(href="javascript:void(0)")
+                                    span.material-icons-outlined archive
+                            li
+                                a(href="javascript:void(0)")
+                                    span.material-icons-outlined build
+                            li
+                                a(href="javascript:void(0)")
+                                    span.material-icons-outlined translate
+                            li
+                                a(href="javascript:void(0)")
+                                    span.material-icons-outlined check_circle
+                            li
+                                a(href="javascript:void(0)")
+                                    span.material-icons-outlined close
+                            li
+                                a(href="javascript:void(0)")
+                                    span.material-icons-outlined edit
+                            li
+                                a(href="javascript:void(0)")
+                                    span.material-icons-outlined delete
+                            li
+                                a(href="javascript:void(0)")
+                                    span.material-icons-outlined check_circle
+                            li
+                                a(href="javascript:void(0)")
+                                    span.material-icons-outlined close
+                            li
+                                a(href="javascript:void(0)")
+                                    span.material-icons-outlined edit
+                            li
+                                a(href="javascript:void(0)")
+                                    span.material-icons-outlined delete

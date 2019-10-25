@@ -8,8 +8,91 @@
     <link rel="icon" href="./assets/img/material-dashboard-logo.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link href="./assets/css/main.css" rel="stylesheet">
+    <script src="./assets/js/fontfaceobserver.min.js"></script>
+    <script>
+      (function () {
+          document.documentElement.className += " wf-inactive";
+      
+          if (sessionStorage.foutFontsLoaded) {
+              document.documentElement.classList.remove("wf-inactive");
+              document.documentElement.classList.add("wf-active");
+              return;
+          }
+      
+          var font = new FontFaceObserver('Oswald', {});
+      
+          Promise.all([font.load()]).then(function () {
+              document.documentElement.classList.remove("wf-inactive");
+              document.documentElement.classList.add("wf-active");
+              // Optimization for Repeat Views
+              sessionStorage.foutFontsLoaded = true;
+          });
+      }())
+      
+      
+    </script>
   </head>
-  <body class="class">
+  <body class="class"><a class="toggle-web-fonts button on" href="#" id="toggle-web-fonts">Web Fonts</a>
+    <style>
+      .button {
+          font-size: 1rem;
+          font-family: "Amstelvar 1.1 VF", Georgia, "New Times Roman", serif;
+          font-variation-settings: 'wght' 450,
+          'wdth' 100,
+          'opsz' 16,
+          'GRAD' 88;
+          text-decoration: none;
+          color: #383838;
+          background-color: #fefafa;
+          background-image: linear-gradient(#ffffff, #ede9e9);
+          padding: 0.25em;
+          border-radius: 0.5em;
+          box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+          transition: all linear 0.2s;
+      }
+      
+      .button:hover {
+          background-color: #e4e1e1;
+          background-image: linear-gradient(#fefafa, #cbc7c7);
+          font-variation-settings: 'wght' 450,
+          'wdth' 100,
+          'opsz' 16,
+          'GRAD' 150;
+      }
+      
+      .toggle-web-fonts {
+          position: fixed;
+          top: 0.5em;
+          right: 8em;
+          z-index: 999;
+      }
+      @media (min-width: 30em) {
+          .toggle-web-fonts {
+              right: 0.5em;
+      }
+      }
+      .toggle-web-fonts.on:after {
+          content: ": on";
+      }
+      .toggle-web-fonts.off:after {
+          content: ": off";
+      }
+    </style>
+    <script>
+      if (!'classList' in document.createElement('span')) {
+          document.getElementById('c-unsupported').classList.remove('hidden');
+          document.getElementById('execute').setAttribute('disabled', 'disabled');
+      } else {
+          document.getElementById('toggle-web-fonts').addEventListener('click', function (e) {
+              e.preventDefault();
+              document.getElementById('toggle-web-fonts').classList.toggle('on');
+              document.getElementById('toggle-web-fonts').classList.toggle('off');
+              document.getElementsByTagName("html")[0].classList.toggle('wf-inactive');
+              document.getElementsByTagName("html")[0].classList.toggle('wf-active');
+          });
+      }
+      
+    </script>
     <header class="header">
       <button class="header__btn header__btn-menu"><i class="material-icons-outlined header__icon">menu</i></button><a class="brand" href="#"><i class="brand__logo"></i><span class="brand__title">MATERIAL DASHBOARD</span></a>
       <nav class="header__nav">
@@ -64,164 +147,294 @@
       </ul>
     </aside>
     <main class="content">
-      <!--table.table-->
-      <!--    thead-->
-      <!--        tr-->
-      <!--            th-->
-      <!--                div.checker-->
-      <!--                    input(-->
-      <!--                        type="checkbox",-->
-      <!--                        name="inline-checkbox"-->
-      <!--                        id="checkbox-head"-->
-      <!--                        class="checker-control checker-control--checkbox"-->
-      <!--                    )-->
-      <!--                    label(class="checker__label", for="checkbox-head")-->
-      <!--            th name-->
-      <!--            th Address-->
-      <!--            th phone-->
-      <!--    tbody-->
-      <!--        tr-->
-      <!--            td-->
-      <!--                div.checker-->
-      <!--                    input(-->
-      <!--                        type="checkbox",-->
-      <!--                        name="inline-checkbox"-->
-      <!--                        id="checkbox-1"-->
-      <!--                        class="checker-control checker-control--checkbox"-->
-      <!--                    )-->
-      <!--                    label(class="checker__label", for="checkbox-1")-->
-      <!--            td Ali-->
-      <!--            td Address-->
-      <!--            td phone-->
-      <!--        tr-->
-      <!--            td-->
-      <!--                div.checker-->
-      <!--                    input(-->
-      <!--                        type="checkbox",-->
-      <!--                        name="inline-checkbox"-->
-      <!--                        id="checkbox-1"-->
-      <!--                        class="checker-control checker-control--checkbox"-->
-      <!--                    )-->
-      <!--                    label(class="checker__label", for="checkbox-1")-->
-      <!--            td Ali-->
-      <!--            td Address-->
-      <!--            td phone-->
-      <!---->
-      <!--        tr-->
-      <!--            td-->
-      <!--                div.checker-->
-      <!--                    input(-->
-      <!--                        type="checkbox",-->
-      <!--                        name="inline-checkbox"-->
-      <!--                        id="checkbox-1"-->
-      <!--                        class="checker-control checker-control--checkbox"-->
-      <!--                    )-->
-      <!--                    label(class="checker__label", for="checkbox-1")-->
-      <!--            td Ali-->
-      <!--            td Address-->
-      <!--            td phone-->
-      <!--        tr-->
-      <!--            td-->
-      <!--                div.checker-->
-      <!--                    input(-->
-      <!--                        type="checkbox",-->
-      <!--                        name="inline-checkbox"-->
-      <!--                        id="checkbox-1"-->
-      <!--                        class="checker-control checker-control--checkbox"-->
-      <!--                    )-->
-      <!--                    label(class="checker__label", for="checkbox-1")-->
-      <!--            td Ali-->
-      <!--            td Address-->
-      <!--            td phone-->
-      <!---->
-      <div class="datatable">
-        <div class="datatable__header">
-          <div class="datatable__row">
-            <div class="datatable__cell">
+      <table class="datatable">
+        <thead>
+          <tr>
+            <th>
               <div class="checker">
                 <input class="checker-control checker-control--checkbox" type="checkbox" name="inline-checkbox" id="checkbox-head">
                 <label class="checker__label" for="checkbox-head"></label>
               </div>
-            </div>
-            <div class="datatable__cell">Name</div>
-            <div class="datatable__cell">Address</div>
-            <div class="datatable__cell">Phone</div>
-            <div class="datatable__cell">Actions</div>
-          </div>
-        </div>
-        <div class="datatable__body">
-          <div class="datatable__row">
-            <div class="datatable__cell">
+            </th>
+            <th class="col-3">name</th>
+            <th class="col-5">Address</th>
+            <th class="col-1">Status</th>
+            <th class="col-1">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
               <div class="checker">
-                <input class="checker-control checker-control--checkbox" type="checkbox" name="inline-checkbox" id="checkbox-head">
-                <label class="checker__label" for="checkbox-head"></label>
+                <input class="checker-control checker-control--checkbox" type="checkbox" name="inline-checkbox" id="checkbox-1">
+                <label class="checker__label" for="checkbox-1"></label>
               </div>
-            </div>
-            <div class="datatable__cell">Name</div>
-            <div class="datatable__cell">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A cupiditate ex labore, quae sint soluta.</p>
-            </div>
-            <div class="datatable__cell">Phone</div>
-            <div class="datatable__cell">Actions</div>
-          </div>
-          <div class="datatable__row">
-            <div class="datatable__cell">
+            </td>
+            <td class="col-3"><span class="td__title">Name:</span><i>+'. Lorem ipsum dolor sit amet.'</i></td>
+            <td class="col-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+            <td class="col-1">active</td>
+            <td class="col-1">Dec 25, 2016</td>
+            <td class="datatable__action">
+              <ul>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">archive</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">build</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">translate</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">check_circle</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">close</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">edit</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">delete</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">check_circle</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">close</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">edit</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">delete</span></a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div class="checker">
-                <input class="checker-control checker-control--checkbox" type="checkbox" name="inline-checkbox" id="checkbox-head">
-                <label class="checker__label" for="checkbox-head"></label>
+                <input class="checker-control checker-control--checkbox" type="checkbox" name="inline-checkbox" id="checkbox-2">
+                <label class="checker__label" for="checkbox-2"></label>
               </div>
-            </div>
-            <div class="datatable__cell">Name</div>
-            <div class="datatable__cell">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A eum harum ipsum, odit placeat quo.</p>
-            </div>
-            <div class="datatable__cell">Phone</div>
-            <div class="datatable__cell">Actions</div>
-          </div>
-          <div class="datatable__row">
-            <div class="datatable__cell">
+            </td>
+            <td class="col-3"><span class="td__title">Name:</span><i>+'. Lorem ipsum dolor sit amet.'</i></td>
+            <td class="col-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+            <td class="col-1">active</td>
+            <td class="col-1">Dec 25, 2016</td>
+            <td class="datatable__action">
+              <ul>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">archive</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">build</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">translate</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">check_circle</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">close</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">edit</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">delete</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">check_circle</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">close</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">edit</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">delete</span></a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div class="checker">
-                <input class="checker-control checker-control--checkbox" type="checkbox" name="inline-checkbox" id="checkbox-head">
-                <label class="checker__label" for="checkbox-head"></label>
+                <input class="checker-control checker-control--checkbox" type="checkbox" name="inline-checkbox" id="checkbox-3">
+                <label class="checker__label" for="checkbox-3"></label>
               </div>
-            </div>
-            <div class="datatable__cell">Name</div>
-            <div class="datatable__cell">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dignissimos dolor et eum in, saepe.</p>
-            </div>
-            <div class="datatable__cell">Phone</div>
-            <div class="datatable__cell">Actions</div>
-          </div>
-          <div class="datatable__row">
-            <div class="datatable__cell">
+            </td>
+            <td class="col-3"><span class="td__title">Name:</span><i>+'. Lorem ipsum dolor sit amet.'</i></td>
+            <td class="col-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+            <td class="col-1">active</td>
+            <td class="col-1">Dec 25, 2016</td>
+            <td class="datatable__action">
+              <ul>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">archive</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">build</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">translate</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">check_circle</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">close</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">edit</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">delete</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">check_circle</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">close</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">edit</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">delete</span></a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div class="checker">
-                <input class="checker-control checker-control--checkbox" type="checkbox" name="inline-checkbox" id="checkbox-head">
-                <label class="checker__label" for="checkbox-head"></label>
+                <input class="checker-control checker-control--checkbox" type="checkbox" name="inline-checkbox" id="checkbox-4">
+                <label class="checker__label" for="checkbox-4"></label>
               </div>
-            </div>
-            <div class="datatable__cell">Name</div>
-            <div class="datatable__cell">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores harum inventore pariatur quis sit sunt?</p>
-            </div>
-            <div class="datatable__cell">Phone</div>
-            <div class="datatable__cell">Actions</div>
-          </div>
-          <div class="datatable__row">
-            <div class="datatable__cell">
+            </td>
+            <td class="col-3"><span class="td__title">Name:</span><i>+'. Lorem ipsum dolor sit amet.'</i></td>
+            <td class="col-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+            <td class="col-1">active</td>
+            <td class="col-1">Dec 25, 2016</td>
+            <td class="datatable__action">
+              <ul>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">archive</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">build</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">translate</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">check_circle</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">close</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">edit</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">delete</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">check_circle</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">close</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">edit</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">delete</span></a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div class="checker">
-                <input class="checker-control checker-control--checkbox" type="checkbox" name="inline-checkbox" id="checkbox-head">
-                <label class="checker__label" for="checkbox-head"></label>
+                <input class="checker-control checker-control--checkbox" type="checkbox" name="inline-checkbox" id="checkbox-5">
+                <label class="checker__label" for="checkbox-5"></label>
               </div>
-            </div>
-            <div class="datatable__cell">Name</div>
-            <div class="datatable__cell">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus eaque impedit inventore placeat quaerat tempore!</p>
-            </div>
-            <div class="datatable__cell">Phone</div>
-            <div class="datatable__cell">Actions</div>
-          </div>
-        </div>
-      </div>
+            </td>
+            <td class="col-3"><span class="td__title">Name:</span><i>+'. Lorem ipsum dolor sit amet.'</i></td>
+            <td class="col-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+            <td class="col-1">active</td>
+            <td class="col-1">Dec 25, 2016</td>
+            <td class="datatable__action">
+              <ul>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">archive</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">build</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">translate</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">check_circle</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">close</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">edit</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">delete</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">check_circle</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">close</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">edit</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">delete</span></a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="checker">
+                <input class="checker-control checker-control--checkbox" type="checkbox" name="inline-checkbox" id="checkbox-6">
+                <label class="checker__label" for="checkbox-6"></label>
+              </div>
+            </td>
+            <td class="col-3"><span class="td__title">Name:</span><i>+'. Lorem ipsum dolor sit amet.'</i></td>
+            <td class="col-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+            <td class="col-1">active</td>
+            <td class="col-1">Dec 25, 2016</td>
+            <td class="datatable__action">
+              <ul>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">archive</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">build</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">translate</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">check_circle</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">close</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">edit</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">delete</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">check_circle</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">close</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">edit</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">delete</span></a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="checker">
+                <input class="checker-control checker-control--checkbox" type="checkbox" name="inline-checkbox" id="checkbox-7">
+                <label class="checker__label" for="checkbox-7"></label>
+              </div>
+            </td>
+            <td class="col-3"><span class="td__title">Name:</span><i>+'. Lorem ipsum dolor sit amet.'</i></td>
+            <td class="col-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+            <td class="col-1">active</td>
+            <td class="col-1">Dec 25, 2016</td>
+            <td class="datatable__action">
+              <ul>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">archive</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">build</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">translate</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">check_circle</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">close</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">edit</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">delete</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">check_circle</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">close</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">edit</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">delete</span></a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="checker">
+                <input class="checker-control checker-control--checkbox" type="checkbox" name="inline-checkbox" id="checkbox-8">
+                <label class="checker__label" for="checkbox-8"></label>
+              </div>
+            </td>
+            <td class="col-3"><span class="td__title">Name:</span><i>+'. Lorem ipsum dolor sit amet.'</i></td>
+            <td class="col-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+            <td class="col-1">active</td>
+            <td class="col-1">Dec 25, 2016</td>
+            <td class="datatable__action">
+              <ul>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">archive</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">build</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">translate</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">check_circle</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">close</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">edit</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">delete</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">check_circle</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">close</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">edit</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">delete</span></a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="checker">
+                <input class="checker-control checker-control--checkbox" type="checkbox" name="inline-checkbox" id="checkbox-9">
+                <label class="checker__label" for="checkbox-9"></label>
+              </div>
+            </td>
+            <td class="col-3"><span class="td__title">Name:</span><i>+'. Lorem ipsum dolor sit amet.'</i></td>
+            <td class="col-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+            <td class="col-1">active</td>
+            <td class="col-1">Dec 25, 2016</td>
+            <td class="datatable__action">
+              <ul>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">archive</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">build</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">translate</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">check_circle</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">close</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">edit</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">delete</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">check_circle</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">close</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">edit</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">delete</span></a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="checker">
+                <input class="checker-control checker-control--checkbox" type="checkbox" name="inline-checkbox" id="checkbox-10">
+                <label class="checker__label" for="checkbox-10"></label>
+              </div>
+            </td>
+            <td class="col-3"><span class="td__title">Name:</span><i>+'. Lorem ipsum dolor sit amet.'</i></td>
+            <td class="col-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+            <td class="col-1">active</td>
+            <td class="col-1">Dec 25, 2016</td>
+            <td class="datatable__action">
+              <ul>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">archive</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">build</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">translate</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">check_circle</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">close</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">edit</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">delete</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">check_circle</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">close</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">edit</span></a></li>
+                <li><a href="javascript:void(0)"><span class="material-icons-outlined">delete</span></a></li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </main>
     <footer class="footer">Codtail Dev</footer>
     <div class="mask"></div>

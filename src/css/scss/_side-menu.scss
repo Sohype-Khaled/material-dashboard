@@ -1,0 +1,54 @@
+.side-menu {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	padding: 0 0 4rem;
+	width: 28rem;
+	overflow-y: auto;
+	background-color: $surface;
+	z-index: 5;
+	transition: all 0.3s ease-in-out;
+	transform: translateX(-100%);
+	color: $primary;
+	box-sizing: content-box;
+	border-right: 0.1rem solid map-get($primary-variants, 'lighten-3');;
+
+	@media screen and (min-width: map-get($breakPoints, 'deskt-sm')) {
+		padding: 7.2rem 0 4rem;
+		z-index: 3;
+		transform: translateX(0);
+	}
+
+	.side-menu__list {
+		margin: 2.4rem 0;
+	}
+
+	.side-menu__list-item {
+
+	}
+
+
+	.side-menu__list-item-link {
+		display: block;
+		padding: 1.2rem 2.4rem;
+		cursor: pointer;
+		transition: 0.3s ease-in-out;
+
+		&:link, &:visited {
+			color: $primary;
+		}
+
+		&:hover, &:active {
+			border-left: 0.5rem solid map-get($primary-variants, 'darken-3');
+			font-weight: bold;
+		}
+
+	}
+
+	.side-menu__icon {
+		//font-size: 1.6rem;
+		margin-right: 1.2rem;
+		position: relative;
+		top: 0.6rem;
+	}
+}

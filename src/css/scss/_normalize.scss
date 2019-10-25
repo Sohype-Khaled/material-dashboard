@@ -1,9 +1,7 @@
-/* Document
-   ========================================================================== */
-/**
- * 1. Correct the line height in all browsers.
- * 2. Prevent adjustments of font size after orientation changes in iOS.
- */
+
+
+
+
 
 html {
 	width: 100%;
@@ -107,8 +105,10 @@ abbr[title] {
  */
 
 b,
+em,
 strong {
 	font-weight: bolder;
+	font-synthesis: none;
 }
 
 /**
@@ -366,4 +366,12 @@ template {
 
 ol, ul {
 	list-style: none;
+}
+
+
+[class^="material-icons"] {
+	//font-size: 1em;
+	display: inline-block;
+	position: relative;
+	//top: 0.1em
 }

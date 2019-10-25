@@ -1,0 +1,10 @@
+.content {
+	padding: 16.3rem 4.6rem 4.6rem 4.6rem;
+	display: block;
+	background-color: $background;
+	color: map-get($primary-variants, 'darken-1');
+	min-height: $content-height;
+	@media screen and (min-width: map-get($breakPoints, 'deskt-sm')) {
+		padding: 11.7rem 4.6rem 4.6rem 32.7rem;
+	}
+}

@@ -8,7 +8,90 @@ html
         link(rel="icon", href="./assets/img/material-dashboard-logo.png")
         link(href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined", rel="stylesheet")
         link(href="./assets/css/main.css", rel="stylesheet")
+
+        script(src="./assets/js/fontfaceobserver.min.js")
+        script.
+            (function () {
+                document.documentElement.className += " wf-inactive";
+
+                if (sessionStorage.foutFontsLoaded) {
+                    document.documentElement.classList.remove("wf-inactive");
+                    document.documentElement.classList.add("wf-active");
+                    return;
+                }
+
+                var font = new FontFaceObserver('Oswald', {});
+
+                Promise.all([font.load()]).then(function () {
+                    document.documentElement.classList.remove("wf-inactive");
+                    document.documentElement.classList.add("wf-active");
+                    // Optimization for Repeat Views
+                    sessionStorage.foutFontsLoaded = true;
+                });
+            }())
+
+
     body.class
+
+        a(href="#", id="toggle-web-fonts", class="toggle-web-fonts button on") Web Fonts
+        style.
+            .button {
+                font-size: 1rem;
+                font-family: "Amstelvar 1.1 VF", Georgia, "New Times Roman", serif;
+                font-variation-settings: 'wght' 450,
+                'wdth' 100,
+                'opsz' 16,
+                'GRAD' 88;
+                text-decoration: none;
+                color: #383838;
+                background-color: #fefafa;
+                background-image: linear-gradient(#ffffff, #ede9e9);
+                padding: 0.25em;
+                border-radius: 0.5em;
+                box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+                transition: all linear 0.2s;
+            }
+
+            .button:hover {
+                background-color: #e4e1e1;
+                background-image: linear-gradient(#fefafa, #cbc7c7);
+                font-variation-settings: 'wght' 450,
+                'wdth' 100,
+                'opsz' 16,
+                'GRAD' 150;
+            }
+
+            .toggle-web-fonts {
+                position: fixed;
+                top: 0.5em;
+                right: 8em;
+                z-index: 999;
+            }
+            @media (min-width: 30em) {
+                .toggle-web-fonts {
+                    right: 0.5em;
+            }
+            }
+            .toggle-web-fonts.on:after {
+                content: ": on";
+            }
+            .toggle-web-fonts.off:after {
+                content: ": off";
+            }
+        script.
+            if (!'classList' in document.createElement('span')) {
+                document.getElementById('c-unsupported').classList.remove('hidden');
+                document.getElementById('execute').setAttribute('disabled', 'disabled');
+            } else {
+                document.getElementById('toggle-web-fonts').addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.getElementById('toggle-web-fonts').classList.toggle('on');
+                    document.getElementById('toggle-web-fonts').classList.toggle('off');
+                    document.getElementsByTagName("html")[0].classList.toggle('wf-inactive');
+                    document.getElementsByTagName("html")[0].classList.toggle('wf-active');
+                });
+            }
+
         include header
 
         include sideMenu

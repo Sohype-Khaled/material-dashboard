@@ -1,0 +1,12 @@
+.footer {
+	//position: fixed;
+	//bottom: 0;
+	height: $footer-height;
+	width: 100%;
+	padding: 1.2rem 4.6rem;
+	background-color: map-get($primary-variants, 'lighten-1');
+	color: $surface;
+	@media screen and (min-width: map-get($breakPoints, 'deskt-sm')) {
+		padding-left: 32.7rem;
+	}
+}
